@@ -18,8 +18,10 @@ g() {
 export ANDROID_HOME=~/Library/Android/sdk
 
 ### PATH ###
-export PATH="$PATH:$HOME/.rvm/bin"
+PATH="$HOME/.bin:/usr/local/sbin:$PATH"
+PATH="$PATH:$HOME/.rvm/bin"
 PATH="${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:${PATH}"
+export -U PATH
 
 ### ALIASES ###
 [[ -f ~/.aliases ]] && source ~/.aliases
