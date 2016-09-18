@@ -13,7 +13,7 @@ export CLICOLOR=1
 
 ### COMPLETION ###
 
-compdef g=git # Tell zsh that `g` is the same as `git`
+fpath=(~/.zsh/completions /usr/local/share/zsh/site-functions $fpath)
 
 autoload -U compinit
 compinit
