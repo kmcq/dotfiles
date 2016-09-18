@@ -5,21 +5,25 @@ let mapleader = " "
 """ Basics
 
 set autowrite                         " :write before running commands
+set backspace=2                       " Backspace works as expected
 set clipboard=unnamed                 " Use system clipboard
 set diffopt+=vertical                 " Always use vertical diffs
 set expandtab                         " Tab in insert mode will be spaces
 set ignorecase                        " When searching don't worry if lowercase
-set incsearch                         " do incremental searching
+set incsearch                         " Do incremental searching
+set laststatus=2                      " Always show status line
 set nocompatible                      " Don't worry about vi compatibility
 set noswapfile                        " No weird .swp fields
 set number                            " Show line numbers
-set ruler                             " show the cursor position all the time
+set ruler                             " Show the cursor position all the time
 set shiftwidth=2                      " >> and << commands shift 2 spaces
 set smartcase                         " Strict search case when includes upper
 set tabstop=2                         " Softtabs, 2 spaces
 set textwidth=80                      " Wrap lines at 80 characters
 
 syntax on
+" No colorscheme. I'm using Hardcore for iTerm:
+" github/mbadolato/iTerm2-Color-Schemes/blob/master/schemes/Hardcore.itermcolors
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Plugins
@@ -45,6 +49,9 @@ filetype plugin indent on
 " FZF settings
 nnoremap <C-T> :GFiles<CR>
 nnoremap <C-B> :Buffers<CR>
+nnoremap <leader>/ :BLines<CR>
+nnoremap \ :Ag<space>
+nnoremap K :Ag <C-R><C-W><CR>
 let g:fzf_buffers_jump = 1 " [Buffers] Jump to the existing window if possible
 
 let g:multi_cursor_next_key='<C-n>' " Multi-cursor set to CTRL+N
@@ -116,3 +123,13 @@ function! InsertTabWrapper()
 endfunction
 inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <S-Tab> <c-n>
+
+""" Statusline
+set statusline=%f       "tail of the filename
+set statusline+=%h      "help file flag
+set statusline+=%m      "modified flag
+set statusline+=%=      "left/right separator
+set statusline+=%c,     "cursor column
+set statusline+=%l/%L   "cursor line/total lines
+
+hi StatusLine ctermbg=white ctermfg=black
