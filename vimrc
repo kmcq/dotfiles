@@ -28,6 +28,8 @@ syntax on
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'                       " Show git changed lines
+Plug 'mxw/vim-jsx'                                  " Vim-JSX integration
+Plug 'pangloss/vim-javascript'                      " Vim-JS integration
 Plug 'terryma/vim-multiple-cursors'                 " Sublime-like mutli-cursor
 Plug 'tpope/vim-eunuch'                             " Nice UNIX commands
 Plug 'tpope/vim-fugitive'                           " Vim-Git bindings
@@ -46,8 +48,9 @@ nnoremap <C-T> :GFiles<CR>
 nnoremap <C-B> :Buffers<CR>
 let g:fzf_buffers_jump = 1 " [Buffers] Jump to the existing window if possible
 
-" Multi-cursor set to CTRL+N
-let g:multi_cursor_next_key='<C-n>'
+let g:multi_cursor_next_key='<C-n>' " Multi-cursor set to CTRL+N
+
+let g:jsx_ext_required = 0 " JSX highlighting in .js files
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Window management
