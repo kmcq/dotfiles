@@ -4,18 +4,21 @@ let mapleader = " "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Basics
 
-set autowrite           " Automatically :write before running commands
-set clipboard=unnamed   " Use system clipboard
-set diffopt+=vertical   " Always use vertical diffs
-set expandtab           " Tab in insert mode will be spaces
-set incsearch           " do incremental searching
-set nocompatible        " Don't worry about vi compatibility
-set noswapfile          " No weird .swp fields
-set number              " Show line numbers
-set ruler               " show the cursor position all the time
-set shiftwidth=2        " >> and << commands shift 2 spaces
-set tabstop=2           " Softtabs, 2 spaces
-set textwidth=80        " Wrap lines at 80 characters
+set autowrite                         " :write before running commands
+set clipboard=unnamed                 " Use system clipboard
+set diffopt+=vertical                 " Always use vertical diffs
+set expandtab                         " Tab in insert mode will be spaces
+set ignorecase                        " When searching don't worry if lowercase
+set incsearch                         " do incremental searching
+set nocompatible                      " Don't worry about vi compatibility
+set noswapfile                        " No weird .swp fields
+set number                            " Show line numbers
+set ruler                             " show the cursor position all the time
+set shiftwidth=2                      " >> and << commands shift 2 spaces
+set smartcase                         " Strict search case when includes upper
+set tabstop=2                         " Softtabs, 2 spaces
+set textwidth=80                      " Wrap lines at 80 characters
+set wildmode=list:longest,list:full   " Show completion options
 
 syntax on
 
@@ -25,7 +28,10 @@ syntax on
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'                       " Show git changed lines
+Plug 'terryma/vim-multiple-cursors'                 " Sublime-like mutli-cursor
+Plug 'tpope/vim-eunuch'                             " Nice UNIX commands
 Plug 'tpope/vim-fugitive'                           " Vim-Git bindings
+Plug 'tpope/vim-rails'                              " Vim-Rails bindings
 Plug 'tpope/vim-vinegar'                            " Better netrw
 Plug 'vim-ruby/vim-ruby'                            " Vim-Ruby integration
 Plug 'vim-scripts/tComment'                         " Comment out lines
@@ -39,6 +45,9 @@ filetype plugin indent on
 nnoremap <C-T> :GFiles<CR>
 nnoremap <C-B> :Buffers<CR>
 let g:fzf_buffers_jump = 1 " [Buffers] Jump to the existing window if possible
+
+" Multi-cursor set to CTRL+N
+let g:multi_cursor_next_key='<C-n>'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Window management
