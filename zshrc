@@ -12,6 +12,9 @@ colors
 export CLICOLOR=1
 
 ### COMPLETION ###
+
+compdef g=git # Tell zsh that `g` is the same as `git`
+
 autoload -U compinit
 compinit
 
