@@ -11,6 +11,10 @@ colors
 # enable colored output from ls, etc. on FreeBSD-based systems
 export CLICOLOR=1
 
+### COMPLETION ###
+autoload -U compinit
+compinit
+
 ### FUNCTIONS ###
 
 # No arguments: `git status`
