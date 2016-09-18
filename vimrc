@@ -4,16 +4,18 @@ let mapleader = " "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Basics
 
-set noswapfile          " No weird .swp fields
+set autowrite           " Automatically :write before running commands
 set clipboard=unnamed   " Use system clipboard
-set ruler               " show the cursor position all the time
-set tabstop=2           " Softtabs, 2 spaces
-set shiftwidth=2        " >> and << commands shift 2 spaces
-set expandtab           " Tab in insert mode will be spaces
-set textwidth=80        " Wrap lines at 80 characters
-set number              " Show line numbers
-set numberwidth=5       " 5 column width to line number. Good for gitgutter
 set diffopt+=vertical   " Always use vertical diffs
+set expandtab           " Tab in insert mode will be spaces
+set incsearch           " do incremental searching
+set nocompatible        " Don't worry about vi compatibility
+set noswapfile          " No weird .swp fields
+set number              " Show line numbers
+set ruler               " show the cursor position all the time
+set shiftwidth=2        " >> and << commands shift 2 spaces
+set tabstop=2           " Softtabs, 2 spaces
+set textwidth=80        " Wrap lines at 80 characters
 
 syntax on
 
@@ -22,9 +24,16 @@ syntax on
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'tpope/vim-vinegar'
+Plug 'airblade/vim-gitgutter'                       " Show git changed lines
+Plug 'tpope/vim-fugitive'                           " Vim-Git bindings
+Plug 'tpope/vim-vinegar'                            " Better netrw
+Plug 'vim-ruby/vim-ruby'                            " Vim-Ruby integration
+Plug 'vim-scripts/tComment'                         " Comment out lines
+Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " Fuzzy finder
 
 call plug#end()
+
+filetype plugin indent on
 
 " FZF settings
 nnoremap <C-T> :GFiles<CR>
