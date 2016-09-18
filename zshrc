@@ -2,6 +2,15 @@
 export VISUAL=vim
 export EDITOR=$VISUAL
 
+### COLOR ###
+
+# makes color constants available
+autoload -U colors
+colors
+
+# enable colored output from ls, etc. on FreeBSD-based systems
+export CLICOLOR=1
+
 ### FUNCTIONS ###
 
 # No arguments: `git status`
