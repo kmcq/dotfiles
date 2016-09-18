@@ -1,0 +1,40 @@
+### UNIX ###
+alias tlf="tail -f"
+alias ln='ln -v'
+alias mkdir='mkdir -p'
+alias l='ls'
+alias ll='ls -al'
+
+### SHORTCUTS ###
+alias src='cd ~/src/'
+alias yei='src && cd YEI-Rails'
+
+### RAILS ###
+alias s="bundle exec rspec"
+
+### GIT ###
+alias gp="git pull"
+alias gpr="git pull --rebase"
+alias gpu="git push"
+alias gca="git commit --amend"
+alias gcm="git commit -m"
+alias gsave="git add . && git commit -m \"save work\""
+alias gll="git log --name-status"
+alias gd="git diff"
+alias gdc="git diff --cached"
+alias gl="git log --pretty=format:'%Cred%h%Creset -%C(bold yellow)<%an> %C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --date=relative --abbrev-commit --graph | head -10"
+alias glnh="git log --pretty=format:'%Cred%h%Creset -%C(bold yellow)<%an> %C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --date=relative --abbrev-commit --graph"
+
+### TMUX ###
+alias tn='tmux new -s'
+alias ta='tmux attach -t'
+alias td='tmux detach'
+alias tl='tmux ls'
+
+### EXTRAS ###
+
+# ctags fix. OSX ctags is bad - this forces use of brew's ctags
+alias ctags="`brew --prefix`/bin/ctags"
+
+# Pretty print the path
+alias path='echo $PATH | tr -s ":" "\n"'
