@@ -33,6 +33,9 @@ alias tl='tmux ls'
 
 ### EXTRAS ###
 
+# Use MacVim's Vim so we can use 8.0
+alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
+
 # ctags fix. OSX ctags is bad - this forces use of brew's ctags
 alias ctags="`brew --prefix`/bin/ctags"
 
