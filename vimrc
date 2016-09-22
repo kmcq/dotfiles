@@ -25,6 +25,8 @@ syntax on
 " No colorscheme. I'm using Hardcore for iTerm:
 " github/mbadolato/iTerm2-Color-Schemes/blob/master/schemes/Hardcore.itermcolors
 
+nnoremap <leader>sv :source<space>~/.vimrc<CR> " Source this file
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Plugins
 
@@ -47,7 +49,7 @@ call plug#end()
 filetype plugin indent on
 
 " FZF settings
-nnoremap <C-T> :GFiles<CR>
+nnoremap <C-T> :Files<CR>
 nnoremap <C-B> :Buffers<CR>
 nnoremap <leader>/ :BLines<CR>
 nnoremap \ :Ag<space>
