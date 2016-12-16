@@ -134,4 +134,4 @@ set statusline+=%=      "left/right separator
 set statusline+=%c,     "cursor column
 set statusline+=%l/%L   "cursor line/total lines
 
-hi StatusLine ctermbg=white ctermfg=black
+hi StatusLine ctermfg=black ctermfg=white

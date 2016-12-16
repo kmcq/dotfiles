@@ -37,6 +37,7 @@ export ANDROID_HOME=~/Library/Android/sdk
 PATH="$HOME/.bin:/usr/local/sbin:$PATH"
 PATH="$PATH:$HOME/.rvm/bin"
 PATH="${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:${PATH}"
+PATH="$PATH:$HOME/.yarn/bin"
 export -U PATH
 
 ### ALIASES ###
@@ -54,3 +55,6 @@ git_prompt_info() {
 }
 setopt promptsubst
 PS1='${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%c%{$reset_color%}$(git_prompt_info) %# '
+
+### VARIABLES ###
+[[ -f ~/.zshrc.variables ]] && source ~/.zshrc.variables
