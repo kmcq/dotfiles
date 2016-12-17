@@ -2,6 +2,7 @@
 alias tlf="tail -f"
 alias ln='ln -v'
 alias mkdir='mkdir -p'
+alias ls="ls -G"
 alias l='ls'
 alias ll='ls -al'
 alias vi='vim'
