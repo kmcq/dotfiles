@@ -1,0 +1,11 @@
+# OSX
+.DS_Store
+
+# CTags
+tags
+
+# Bundler
+.bundle/config
+
+# JS packages
+node_modules

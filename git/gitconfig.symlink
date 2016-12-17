@@ -1,0 +1,34 @@
+[user]
+  name = Keith McHugh
+  email = keith.mchugh@gmail.com
+[github]
+  user = kmcq
+[credential]
+  helper = osxkeychain
+[alias]
+  br = branch
+  co = checkout
+  ci = commit
+  cp = cherry-pick
+  delete-merged-branches = "!git co master && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+  pruneremote = remote prune origin
+  st = status
+  staged = diff --staged
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  ui = true
+[core]
+  excludesfile = ~/.gitignore
+  editor = vim
+[difftool]
+  prompt = false
+[mergetool]
+  prompt = false
+[push]
+  default = upstream
+[fetch]
+  prune = true
+[rebase]
+  autosquash = true

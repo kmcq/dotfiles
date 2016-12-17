@@ -1,0 +1,16 @@
+# ~/.tmuxinator/yei.yml
+
+name: YEI-RAILS
+root: ~/src/YEI-RAILS
+
+windows:
+  - vim:
+    - vim .
+  - term:
+    - g
+  - test:
+    - yarn test -- --watch
+  - webpack:
+    - yarn start
+  - rails:
+    - ELASTICSEARCH=true rails s -p 8000
