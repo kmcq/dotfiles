@@ -19,14 +19,16 @@ alias s="bundle exec rspec"
 alias karma='node_modules/.bin/karma start --browsers Chrome'
 
 ### GIT ###
+alias g="git"
 alias gb="git branch"
 alias gp="git pull"
+alias gs="git status"
 alias gpr="git pull --rebase"
 alias gpu="git push"
 alias gpuf="git push -f"
 alias gca="git commit --amend"
 alias gcm="git commit -m"
-alias gsave="git stash save -u"
+alias gsave="git stash save -a"
 alias gbackone="git reset HEAD~ && git status"
 alias gll="git log --name-status"
 alias gd="git diff"

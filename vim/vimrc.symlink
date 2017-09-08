@@ -30,7 +30,7 @@ nnoremap <leader>sv :source<space>~/.vimrc<CR> " Source this file
 
 " Sets background for 101st column onward
 if exists('+colorcolumn')
-  let &colorcolumn=join(range(101,999),",")
+  " let &colorcolumn=join(range(121,999),",")
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -38,6 +38,7 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'alampros/vim-styled-jsx'                      " styled-jsx syntax
 Plug 'airblade/vim-gitgutter'                       " Show git changed lines
 Plug 'chriskempson/base16-vim'
 Plug 'ervandew/supertab'
@@ -47,6 +48,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'terryma/vim-multiple-cursors'                 " Sublime-like mutli-cursor
 Plug 'tpope/vim-eunuch'                             " Nice UNIX commands
 Plug 'tpope/vim-fugitive'                           " Vim-Git bindings
+Plug 'tpope/vim-rhubarb'                            " Vim-GitHub
 Plug 'tpope/vim-rails'                              " Vim-Rails bindings
 Plug 'tpope/vim-vinegar'                            " Better netrw
 Plug 'vim-airline/vim-airline'
@@ -59,9 +61,10 @@ call plug#end()
 
 filetype plugin indent on
 
-colorscheme base16-ocean
-let base16colorspace=256
-set background=dark
+" colorscheme base16-ocean
+" let base16colorspace=256
+" set background=dark
+" highlight MatchParen ctermbg=blue guibg=lightblue
 
 " FZF settings
 nnoremap <C-T> :Files<CR>
@@ -78,8 +81,8 @@ command! -bang -complete=file -nargs=* Search
   \   <bang>0 ? fzf#vim#with_preview('up:60%')
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
-nnoremap \ :Search<space>
-nnoremap K :Search <C-R><C-W><CR>
+nnoremap \ :Ag<space>
+nnoremap K :Ag <C-R><C-W><CR>
 let g:fzf_buffers_jump = 1 " [Buffers] Jump to the existing window if possible
 
 " Multi-curosr settings
@@ -89,13 +92,20 @@ let g:multi_cursor_next_key='<C-n>' " Multi-cursor set to CTRL+N
 let g:jsx_ext_required = 0 " JSX highlighting in .js files
 
 " Airline settings
-let g:airline_powerline_fonts = 1
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_theme = 'base16'
 
 " NerdTree settings
-nnoremap - :NERDTreeToggle<CR>
+nnoremap - :NERDTreeFind<CR>
+
+" Prettier JS
+autocmd Filetype javascript set formatprg=prettier\ --stdin\ --single-quote\ --print-width=90
+autocmd Filetype css,scss set formatprg=prettier\ --single-quote\ --parser=postcss
+autocmd Filetype json set formatprg=prettier\ --single-quote\ --parser=json
+autocmd Filetype javascript,css,scss,json nnoremap <leader>f mpggVGgq'pzz
+" Not ready for this yet, but this will prettier a file on save
+" autocmd BufWritePre *.js :normal mpggVGgq'p
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Window management
@@ -139,19 +149,15 @@ endif
 vnoremap p "_dP
 vnoremap P "_dP
 
-" Don't deselect visual block after indent/unindent
-vnoremap < <gv
-vnoremap > >gv
-
 " Traverse lines as they are seen not as as they are known to Vim
 nnoremap j gj
 nnoremap k gk
 
 " No arrow keys
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
+" nnoremap <Left> :echoe "Use h"<CR>
+" nnoremap <Right> :echoe "Use l"<CR>
+" nnoremap <Up> :echoe "Use k"<CR>
+" nnoremap <Down> :echoe "Use j"<CR>
 
 " Ignored files/directories from autocomplete (and CtrlP)
 set wildignore+=*/tmp/*

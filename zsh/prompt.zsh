@@ -2,9 +2,6 @@ autoload colors && colors
 # cheers, @ehrenmurdick
 # http://github.com/ehrenmurdick/config/blob/master/zsh/prompt.zsh
 
-# Add a newline after each command
-precmd() { print "" }
-
 if (( $+commands[git] )); then
   git="$commands[git]"
 else
@@ -71,5 +68,4 @@ host() {
   echo "%m%{$reset_color%}"
 }
 
-PROMPT='$(username)@$(host):$(directory_name)$(git_branch)$(git_dirty)$(need_push_or_pull)
-%{$fg[cyan]%}$ %{$reset_color%}'
+PROMPT='▲  '

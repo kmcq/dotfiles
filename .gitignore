@@ -1,3 +1,6 @@
 # Vim files
 plugged
 undo
+
+# bundler
+cache/

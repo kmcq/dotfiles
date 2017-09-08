@@ -44,8 +44,7 @@ done
 
 unset config_files
 
-# Execute Archey
-if [[ $(uname -s) == "Darwin" ]]; then; archey; fi
-
 # Resource FZF to ensure keybindings are set on top of ZSH
 source $ZSH/fzf/fzf.zsh
+
+export PATH="$HOME/.yarn/bin:$PATH"

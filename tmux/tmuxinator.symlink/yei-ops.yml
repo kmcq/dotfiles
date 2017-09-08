@@ -1,0 +1,8 @@
+# ~/.tmuxinator/yei-ops.yml
+
+name: YEI-ops
+root: ~/src/YEI-ops
+
+windows:
+  - vaulted:
+    - vaulted shell yei-aws

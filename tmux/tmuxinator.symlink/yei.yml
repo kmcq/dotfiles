@@ -7,10 +7,10 @@ windows:
   - vim:
     - vim .
   - term:
-    - g
+    - gs
   - test:
     - yarn test -- --watch
   - webpack:
-    - yarn start
+    - grunt build:prod --watch
   - rails:
-    - ELASTICSEARCH=true rails s -p 8000
+    - ELASTICSEARCH=true rails s
