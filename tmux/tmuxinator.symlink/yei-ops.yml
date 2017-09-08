@@ -5,4 +5,4 @@ root: ~/src/YEI-ops
 
 windows:
   - vaulted:
-    - vaulted shell yei-aws
+    - cd utils/ecs/ && vaulted shell yei-aws
