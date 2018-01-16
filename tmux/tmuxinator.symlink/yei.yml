@@ -9,8 +9,8 @@ windows:
   - term:
     - gs
   - test:
-    - yarn test -- --watch
+    - yarn test --watch
   - webpack:
-    - grunt build:prod --watch
+    - yarn start
   - rails:
     - ELASTICSEARCH=true rails s
