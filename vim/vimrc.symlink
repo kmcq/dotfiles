@@ -100,7 +100,7 @@ let g:airline_theme = 'base16'
 nnoremap - :NERDTreeFind<CR>
 
 " Prettier JS
-autocmd Filetype javascript set formatprg=prettier\ --stdin\ --single-quote\ --print-width=100
+autocmd Filetype javascript set formatprg=prettier\ --stdin\ --single-quote\ --print-width=90
 autocmd Filetype css,scss set formatprg=prettier\ --single-quote\ --parser=postcss
 autocmd Filetype json set formatprg=prettier\ --single-quote\ --parser=json
 autocmd Filetype javascript,css,scss,json nnoremap <leader>f mpggVGgq'pzz
