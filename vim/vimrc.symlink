@@ -55,6 +55,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-ruby/vim-ruby'                            " Vim-Ruby integration
 Plug 'vim-scripts/tComment'                         " Comment out lines
+Plug 'w0rp/ale'                                     " Async linter
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " Fuzzy finder
 
 call plug#end()
@@ -106,6 +107,17 @@ autocmd Filetype json set formatprg=prettier\ --single-quote\ --parser=json
 autocmd Filetype javascript,css,scss,json nnoremap <leader>f mpggVGgq'pzz
 " Not ready for this yet, but this will prettier a file on save
 " autocmd BufWritePre *.js :normal mpggVGgq'p
+
+" ALE settings
+
+" Turn off all highlights cuz they're ugly
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
+let g:ale_set_highlights = 0
+
+" Use ]f and [f to navigate between errors
+nmap <silent> [f <Plug>(ale_previous_wrap)
+nmap <silent> ]f <Plug>(ale_next_wrap)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Window management
