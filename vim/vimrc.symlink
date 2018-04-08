@@ -42,9 +42,14 @@ Plug 'alampros/vim-styled-jsx'                      " styled-jsx syntax
 Plug 'airblade/vim-gitgutter'                       " Show git changed lines
 Plug 'chriskempson/base16-vim'
 Plug 'ervandew/supertab'
+Plug 'jparise/vim-graphql'
 Plug 'mxw/vim-jsx'                                  " Vim-JSX integration
 Plug 'pangloss/vim-javascript'                      " Vim-JS integration
+Plug 'prettier/vim-prettier', {
+    \ 'do': 'yarn install',
+    \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss'] }
 Plug 'scrooloose/nerdtree'
+Plug 'styled-components/vim-styled-components'
 Plug 'terryma/vim-multiple-cursors'                 " Sublime-like mutli-cursor
 Plug 'tpope/vim-eunuch'                             " Nice UNIX commands
 Plug 'tpope/vim-fugitive'                           " Vim-Git bindings
@@ -101,12 +106,10 @@ let g:airline_theme = 'base16'
 nnoremap - :NERDTreeFind<CR>
 
 " Prettier JS
-autocmd Filetype javascript set formatprg=prettier\ --stdin\ --single-quote\ --print-width=90
-autocmd Filetype css,scss set formatprg=prettier\ --single-quote\ --parser=postcss
-autocmd Filetype json set formatprg=prettier\ --single-quote\ --parser=json
-autocmd Filetype javascript,css,scss,json nnoremap <leader>f mpggVGgq'pzz
-" Not ready for this yet, but this will prettier a file on save
-" autocmd BufWritePre *.js :normal mpggVGgq'p
+autocmd Filetype javascript,css,scss,json nnoremap <leader>f :Prettier<CR>
+let g:prettier#exec_cmd_async = 1
+let g:prettier#config#print_width = 90
+let g:prettier#config#bracket_spacing = 'true'
 
 " ALE settings
 
