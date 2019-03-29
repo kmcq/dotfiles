@@ -38,19 +38,22 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'alampros/vim-styled-jsx'                      " styled-jsx syntax
 Plug 'airblade/vim-gitgutter'                       " Show git changed lines
+Plug 'alampros/vim-styled-jsx'                      " styled-jsx syntax
+Plug 'chemzqm/vim-jsx-improve'
 Plug 'chriskempson/base16-vim'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'ervandew/supertab'
 Plug 'jparise/vim-graphql'
-Plug 'mxw/vim-jsx'                                  " Vim-JSX integration
-Plug 'pangloss/vim-javascript'                      " Vim-JS integration
-Plug 'prettier/vim-prettier', {
-    \ 'do': 'yarn install',
-    \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss'] }
+Plug 'HerringtonDarkholme/yats.vim', { 'for': ['typescript']}
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'scrooloose/nerdtree'
-Plug 'styled-components/vim-styled-components'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'terryma/vim-multiple-cursors'                 " Sublime-like mutli-cursor
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'                             " Nice UNIX commands
 Plug 'tpope/vim-fugitive'                           " Vim-Git bindings
 Plug 'tpope/vim-rhubarb'                            " Vim-GitHub
@@ -59,7 +62,6 @@ Plug 'tpope/vim-vinegar'                            " Better netrw
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-ruby/vim-ruby'                            " Vim-Ruby integration
-Plug 'vim-scripts/tComment'                         " Comment out lines
 Plug 'w0rp/ale'                                     " Async linter
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " Fuzzy finder
 
@@ -106,12 +108,12 @@ let g:airline_theme = 'base16'
 nnoremap - :NERDTreeFind<CR>
 
 " Prettier JS
-autocmd Filetype javascript,css,scss,json nnoremap <leader>f :Prettier<CR>
-let g:prettier#exec_cmd_async = 1
 let g:prettier#config#print_width = 90
 let g:prettier#config#bracket_spacing = 'true'
 let g:prettier#config#trailing_comma = 'none'
 let g:prettier#config#jsx_bracket_same_line = 'false'
+autocmd Filetype javascript,typescript,typescript.tsx,css,scss,json nnoremap <leader>f :Prettier<CR>
+autocmd BufWritePre *.js,*.ts,*.tsx,*.css,*.scss,*.less Prettier
 
 
 " ALE settings

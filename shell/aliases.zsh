@@ -34,7 +34,7 @@ alias gll="git log --name-status"
 alias gd="git diff"
 alias gdc="git diff --cached"
 alias glnh="git log --pretty=format:'%Cred%h%Creset -%C(bold yellow)<%an> %C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --date=relative --abbrev-commit --graph --no-merges"
-alias gl="git branch && glnh | head -10"
+alias gl="echo && git branch && echo && glnh -10"
 alias standup='git log --author="`git config user.name`" --since="1 day ago"'
 
 ### TMUX ###
