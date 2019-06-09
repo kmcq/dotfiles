@@ -7,17 +7,23 @@ let mapleader = " "
 set autowrite                         " :write before running commands
 set backspace=indent,eol,start        " http://vi.stackexchange.com/a/2163
 set clipboard=unnamed                 " Use system clipboard
+set completeopt=menuone,preview
 set diffopt+=vertical                 " Always use vertical diffs
 set expandtab                         " Tab in insert mode will be spaces
+set gdefault
 set ignorecase                        " When searching don't worry if lowercase
 set incsearch                         " Do incremental searching
+set infercase                         " Ignore case on insert completion
 set laststatus=2                      " Always show status line
 set lazyredraw                        " Reduce the redraw frequency
+set matchpairs+=<:>                   " Also match angle brackets
 set nocompatible                      " Don't worry about vi compatibility
+set nohlsearch                        " Don't highlight search terms
 set noswapfile                        " No weird .swp fields
 set number                            " Show line numbers
 set ruler                             " Show the cursor position all the time
 set shiftwidth=2                      " >> and << commands shift 2 spaces
+set showfulltag                       " Show extra information when using tags in insert mode
 set smartcase                         " Strict search case when includes upper
 set tabstop=2                         " Softtabs, 2 spaces
 set textwidth=80                      " Wrap lines at 80 characters
@@ -46,7 +52,6 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'ervandew/supertab'
 Plug 'jparise/vim-graphql'
 Plug 'HerringtonDarkholme/yats.vim', { 'for': ['typescript']}
-Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'scrooloose/nerdtree'
@@ -113,7 +118,7 @@ let g:prettier#config#bracket_spacing = 'true'
 let g:prettier#config#trailing_comma = 'none'
 let g:prettier#config#jsx_bracket_same_line = 'false'
 autocmd Filetype javascript,typescript,typescript.tsx,css,scss,json nnoremap <leader>f :Prettier<CR>
-autocmd BufWritePre *.js,*.ts,*.tsx,*.css,*.scss,*.less Prettier
+autocmd BufWritePre *.js,*.css,*.scss,*.less Prettier
 
 
 " ALE settings
@@ -121,12 +126,20 @@ autocmd BufWritePre *.js,*.ts,*.tsx,*.css,*.scss,*.less Prettier
 " Turn off all highlights cuz they're ugly
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
+let g:ale_completion_enabled = 1
 let g:ale_set_highlights = 0
 let g:ale_lint_on_text_changed = 'never'
+let g:ale_fixers = {
+\ '*': ['remove_trailing_lines', 'trim_whitespace'],
+\ 'typescript': ['tslint'],
+\}
+let g:ale_fix_on_save = 1
 
-" Use ]f and [f to navigate between errors
-nmap <silent> [f <Plug>(ale_previous_wrap)
-nmap <silent> ]f <Plug>(ale_next_wrap)
+" Use ]d and [d to navigate between errors
+map <silent> [d <Plug>(ale_previous_wrap)
+map <silent> ]d <Plug>(ale_next_wrap)
+
+let g:tsuquyomi_disable_quickfix = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Window management
