@@ -1,6 +1,5 @@
 case "$(uname -s)" in
   Darwin)
-    export PATH="/usr/local/heroku/bin:$PATH"
     export PATH="/usr/local/bin:$PATH"
     ;;
 
@@ -17,3 +16,4 @@ export PATH="${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:${PATH}"
 export PATH="$PATH:$HOME/.yarn/bin"
 export PATH="$PATH:`yarn global bin`"
 export PATH="$PATH:/usr/local/Cellar/node@6/6.9.1/bin"
+export PATH=$PATH:/usr/local/opt/mysql@5.7/bin
