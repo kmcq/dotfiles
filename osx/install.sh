@@ -7,10 +7,6 @@ then
   # Set sidebar icon size to small
   defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 1
 
-  # Trackpad: enable tap to click for this user
-  defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
-  defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
-
   # Enable full keyboard access for all controls
   # (e.g. enable Tab in modal dialogs)
   defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
