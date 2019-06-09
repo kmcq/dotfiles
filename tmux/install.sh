@@ -1,1 +1,1 @@
-gem install tmuxinator
+sudo gem install tmuxinator

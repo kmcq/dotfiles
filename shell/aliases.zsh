@@ -50,3 +50,8 @@ alias ctags="`brew --prefix`/bin/ctags"
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
+
+### GITHUB ###
+
+alias gh-presto='presto --server presto-coordinator.service.github.net:8080'
+alias gh-presto-export='gh-presto --output-format CSV_HEADER -f'
