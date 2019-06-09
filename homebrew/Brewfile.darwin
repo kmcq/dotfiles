@@ -1,3 +1,2 @@
-brew 'macvim'
 brew 'reattach-to-user-namespace'
 brew 'coreutils'
