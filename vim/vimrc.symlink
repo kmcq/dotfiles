@@ -12,22 +12,24 @@ set completeopt=menuone,preview
 set diffopt+=vertical                 " Always use vertical diffs
 set expandtab                         " Tab in insert mode will be spaces
 set gdefault
-set hidden
+" set hidden
 set ignorecase                        " When searching don't worry if lowercase
 set incsearch                         " Do incremental searching
 set infercase                         " Ignore case on insert completion
 set laststatus=2                      " Always show status line
 set lazyredraw                        " Reduce the redraw frequency
 set matchpairs+=<:>                   " Also match angle brackets
-set nobackup
-set nowritebackup
+" set nobackup
+" set nowritebackup
 set nocompatible                      " Don't worry about vi compatibility
 set nohlsearch                        " Don't highlight search terms
 set noswapfile                        " No weird .swp fields
 set number                            " Show line numbers
+" set re=1                              " Use older regex engine, massively speeds ruby syntax highlighting
+set redrawtime=10000                  " Cuz GH has some huge files
 set ruler                             " Show the cursor position all the time
 set shiftwidth=2                      " >> and << commands shift 2 spaces
-set shortmess+=c
+" set shortmess+=c
 set showfulltag                       " Show extra information when using tags in insert mode
 set smartcase                         " Strict search case when includes upper
 set tabstop=2                         " Softtabs, 2 spaces
@@ -50,13 +52,16 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'AndrewRadev/splitjoin.vim'                    " Toggle between multi- and single-line expressions
 Plug 'airblade/vim-gitgutter'                       " Show git changed lines
 Plug 'alampros/vim-styled-jsx'                      " styled-jsx syntax
 Plug 'chemzqm/vim-jsx-improve'
 Plug 'chriskempson/base16-vim'
 Plug 'editorconfig/editorconfig-vim'
 " Plug 'ervandew/supertab'
+Plug 'fatih/vim-go'
 Plug 'jparise/vim-graphql'
+Plug 'junegunn/goyo.vim'
 Plug 'HerringtonDarkholme/yats.vim', { 'for': ['typescript']}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'peitalin/vim-jsx-typescript'
@@ -70,6 +75,7 @@ Plug 'tpope/vim-eunuch'                             " Nice UNIX commands
 Plug 'tpope/vim-fugitive'                           " Vim-Git bindings
 Plug 'tpope/vim-rhubarb'                            " Vim-GitHub
 Plug 'tpope/vim-rails'                              " Vim-Rails bindings
+Plug 'tpope/vim-surround'                           " Surround stuff
 " Plug 'tpope/vim-vinegar'                            " Better netrw
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -128,8 +134,12 @@ let g:prettier#config#bracket_spacing = 'true'
 let g:prettier#config#trailing_comma = 'none'
 let g:prettier#config#jsx_bracket_same_line = 'false'
 autocmd Filetype javascript,typescript,typescript.tsx,css,scss,json nnoremap <leader>f :Prettier<CR>
-autocmd BufWritePre *.js,*.css,*.scss,*.less Prettier
+autocmd BufWritePre *.css,*.scss,*.less Prettier
 
+" vim-surround settings
+" Make 'o' work to surround text with nothing. Then use 'S' in vim-surround to
+" wrap the text in new lines.
+let b:surround_111 = "\r"
 
 " ALE settings
 
@@ -150,8 +160,8 @@ map <silent> [d <Plug>(ale_previous_wrap)
 map <silent> ]d <Plug>(ale_next_wrap)
 
 " Use ]d and [d to navigate between Git hunks
-nmap ]c <Plug>GitGutterNextHunk
-nmap [c <Plug>GitGutterPrevHunk
+nmap ]c <Plug>(GitGutterNextHunk)
+nmap [c <Plug>(GitGutterPrevHunk)
 
 " CoC settings
 " Use tab for trigger completion with characters ahead and navigate.
@@ -163,6 +173,9 @@ inoremap <silent><expr> <TAB>
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
+autocmd BufNew,BufEnter *.go execute "silent! CocDisable"
+autocmd BufLeave *.go execute "silent! CocEnable"
+
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
@@ -171,19 +184,43 @@ endfunction
 hi Pmenu ctermfg=NONE ctermbg=238 cterm=NONE guifg=NONE guibg=#64666d gui=NONE
 hi PmenuSel ctermfg=NONE ctermbg=24 cterm=NONE guifg=NONE guibg=#204a87 gui=NONE
 
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-" position.
-" Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-" Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+" vim-go
+" https://github.com/fatih/vim-go-tutorial#quick-setup
+" vif // function text object
+" gS // split up an inline statement
+" gJ // join a multiline statement
+" :GoUpdateBinaries when things like go to def are broken
+" gd // go to definition
+" ctrl-t // back to previous definition
+" K // definition
+" ]] / [[ forward and backward to next funciton
+" leader i // show type info
+" leader b // run build
+" leader r // run
+" :GoReferrers // fins references
+" :GoRename // renames functions
+" :GoPlay // copies source code and puts it in go playground
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
+let g:go_fmt_command = "goimports"
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+let g:go_metalinter_autosave = 1
+" let g:go_metalinter_deadline = "5s"
+let g:go_list_type = "quickfix"
+" let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_def_mapping_enabled = 0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Window management

@@ -1,0 +1,43 @@
+{
+    "files.hotExit": "onExitAndWindowClose",
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "go.useLanguageServer": true,
+    "go.formatTool": "goimports",
+    "window.zoomLevel": 1,
+    "editor.tabSize": 2,
+    "editor.wordWrap": "on",
+    "editor.minimap.enabled": false,
+    "vim.useSystemClipboard": true,
+    "git.confirmSync": false,
+    "git.enableSmartCommit": true,
+    "ruby.useLanguageServer": true,
+    "ruby.useBundler": true,
+    "ruby.lint": {
+        "rubocop": {
+            "useBundler": true
+        }
+    },
+    "vim.normalModeKeyBindings": [
+        {
+            "before": ["j"],
+            "after": ["g", "j"],
+        },
+        {
+            "before": ["k"],
+            "after": ["g", "k"],
+        },
+        {
+            "before": ["]", "c"],
+            "commands": ["workbench.action.editor.nextChange"]
+        },
+        {
+            "before": ["[", "c"],
+            "commands": ["workbench.action.editor.previousChange"]
+        },
+    ],
+    "workbench.sideBar.location": "left",
+    "vim.commandLineModeKeyBindings": [
+    
+    ]
+}

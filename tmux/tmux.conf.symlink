@@ -1,7 +1,6 @@
-# Tmux leader is C-a or C-space
+# Tmux leader is C-a
 unbind C-b
-set -g prefix C-space
-set -g prefix2 C-a
+set -g prefix C-a
 
 # Index starts from 1
 set-option -g base-index 1
@@ -27,29 +26,19 @@ set-option -g mouse on
 # set some pretty colors
 # ----------------------
 
-# colorize messages in the command line
-set-option -g message-bg black #base02
-set-option -g message-fg brightred #orange
-
-# no active pane highlighting
-set-option -g pane-active-border-fg default
-
 # ----------------------
 # Status Bar
 # -----------------------
 
 set-option -g status-position top    # position the status bar at top of screen
 set-option -g status-justify left
-set-option -g status-left '#[bg=colour14] #S #[bg=colour18] '
+set-option -g status-left '#[bg=colour14] #S #[bg=#282a36] '
 set-option -g status-left-length 16
-set-option -g status-bg colour18
+set-option -g status-bg '#282a36'
 # set-option -g status-right '#[fg=colour175] %a %b %d #[fg=colour210,bold] %l:%M%P '
 set -g status-right-length 200
 set -g status-right '#[fg=colour210,bold] Batt: #{battery_percentage} | %a %h-%d %H:%M '
 set-option -g status-interval 60
-
-set-option -g pane-active-border-fg colour240
-set-option -g pane-border-fg colour238
 
 set-window-option -g window-status-format '#[fg=colour110] #I #W#[fg=colour195]#F'
 set-window-option -g window-status-current-format '#[fg=colour215] #I #W#[fg=colour195]#F'
