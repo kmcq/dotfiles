@@ -3,9 +3,13 @@
 
 # CTags
 tags
+tags.*
 
 # Bundler
 .bundle/config
 
-# JS packages
+# JS Packages
 node_modules
+
+# Brewfile locks
+Brewfile*.lock.json

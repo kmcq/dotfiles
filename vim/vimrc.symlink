@@ -1,159 +1,113 @@
-""" Leader
-let mapleader = " "
+"
+" Vim settings for @kmcq, adapted from @bswinnerton
+"
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" Basics
+" Settings in this file may depend on plugins, so let's install them first.
+" Not to be confused with the contents of ~/.vim/plugin/* which are
+" configuration options for each plugin and automatically loaded by Vim.
+source ~/.vim/plugin/plugins.vim
 
-set autowrite                         " :write before running commands
-set backspace=indent,eol,start        " http://vi.stackexchange.com/a/2163
-set clipboard=unnamed                 " Use system clipboard
-set cmdheight=2
-set completeopt=menuone,preview
-set diffopt+=vertical                 " Always use vertical diffs
-set expandtab                         " Tab in insert mode will be spaces
-set gdefault
-" set hidden
-set ignorecase                        " When searching don't worry if lowercase
-set incsearch                         " Do incremental searching
-set infercase                         " Ignore case on insert completion
-set laststatus=2                      " Always show status line
-set lazyredraw                        " Reduce the redraw frequency
-set matchpairs+=<:>                   " Also match angle brackets
-" set nobackup
-" set nowritebackup
-set nocompatible                      " Don't worry about vi compatibility
-set nohlsearch                        " Don't highlight search terms
-set noswapfile                        " No weird .swp fields
-set number                            " Show line numbers
-" set re=1                              " Use older regex engine, massively speeds ruby syntax highlighting
-set redrawtime=10000                  " Cuz GH has some huge files
-set ruler                             " Show the cursor position all the time
-set shiftwidth=2                      " >> and << commands shift 2 spaces
-" set shortmess+=c
-set showfulltag                       " Show extra information when using tags in insert mode
-set smartcase                         " Strict search case when includes upper
-set tabstop=2                         " Softtabs, 2 spaces
-set textwidth=80                      " Wrap lines at 80 characters
-set ttyfast                           " Send more characters in fast terminals
-set updatetime=300
-set wildmenu                          " Tab autocomplete in command mode
+"-------------------------------------------------------------------------------
+" Basics
+"-------------------------------------------------------------------------------
 
 syntax on
 
-nnoremap <leader>sv :source<space>~/.vimrc<CR> " Source this file
+let mapleader=' '                     " Leader - override the default \
 
-" Sets background for 101st column onward
-if exists('+colorcolumn')
-  " let &colorcolumn=join(range(121,999),",")
+set autoread                          " Auto reload changed files
+set autowrite                         " :write before running commands
+set backspace=indent,eol,start        " http://vi.stackexchange.com/a/2163
+set cmdheight=2
+set completeopt=menuone,preview
+set diffopt+=vertical                 " Always use vertical diffs
+set expandtab shiftwidth=2 tabstop=2  " Two spaces for tabs everywhere
+set gdefault
+set ignorecase smartcase              " Search queries intelligently set case
+set incsearch                         " Show search results as you type
+set infercase                         " Ignore case on insert completion
+set laststatus=2                      " Show status line on startup
+set lazyredraw                        " Reduce the redraw frequency
+set nobackup nowritebackup noswapfile " Turn off backup files
+set noerrorbells novisualbell         " Turn off visual and audible bells
+set nohlsearch                        " Don't highlight search terms
+set nowrap                            " Don't wrap long lines
+set scrolloff=5                       " Leave 5 lines of buffer when scrolling
+set showcmd                           " Show size of visual selection
+set showfulltag                       " Show extra information when using tags in insert mode
+set sidescrolloff=10                  " Leave 10 characters of horizontal buffer when scrolling
+set splitbelow
+set splitright
+set timeoutlen=1000 ttimeoutlen=0     " Remove timeout when hitting escape
+set ttyfast                           " Send more characters in fast terminals
+set wildmenu                          " Tab autocomplete in command mode
+
+" Ignored files/directories from autocomplete (and CtrlP)
+set wildignore+=*/tmp/*
+set wildignore+=*.so
+set wildignore+=*.zip
+set wildignore+=*/vendor/bundle/*
+set wildignore+=*/node_modules/
+
+"-------------------------------------------------------------------------------
+" Interface
+"-------------------------------------------------------------------------------
+
+set number            " Enable line numbers
+set scrolloff=5       " Leave 5 lines of buffer when scrolling
+set sidescrolloff=10  " Leave 10 characters of horizontal buffer when scrolling
+
+"-------------------------------------------------------------------------------
+" Alter Vim's behavior
+"-------------------------------------------------------------------------------
+
+" Use system clipboard
+set clipboard=unnamed
+
+" Persistent undo history
+if exists("+undofile")
+  if isdirectory($HOME . '/.vim-undo') == 0
+    :silent !mkdir -p ~/.vim-undo > /dev/null 2>&1
+  endif
+
+  set undofile
+  set undodir=~/.vim-undo/
 endif
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" Plugins
+" Don't copy the contents of an overwritten selection.
+vnoremap p "_dP
+vnoremap P "_dP
 
-call plug#begin('~/.vim/plugged')
+"-------------------------------------------------------------------------------
+" Colors & Formatting
+"-------------------------------------------------------------------------------
 
-Plug 'AndrewRadev/splitjoin.vim'                    " Toggle between multi- and single-line expressions
-Plug 'airblade/vim-gitgutter'                       " Show git changed lines
-Plug 'alampros/vim-styled-jsx'                      " styled-jsx syntax
-Plug 'chemzqm/vim-jsx-improve'
-Plug 'chriskempson/base16-vim'
-Plug 'editorconfig/editorconfig-vim'
-" Plug 'ervandew/supertab'
-Plug 'fatih/vim-go'
-Plug 'jparise/vim-graphql'
-Plug 'junegunn/goyo.vim'
-Plug 'HerringtonDarkholme/yats.vim', { 'for': ['typescript']}
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'peitalin/vim-jsx-typescript'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-Plug 'scrooloose/nerdtree'
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-Plug 'terryma/vim-multiple-cursors'                 " Sublime-like mutli-cursor
-Plug 'tpope/vim-bundler'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-eunuch'                             " Nice UNIX commands
-Plug 'tpope/vim-fugitive'                           " Vim-Git bindings
-Plug 'tpope/vim-rhubarb'                            " Vim-GitHub
-Plug 'tpope/vim-rails'                              " Vim-Rails bindings
-Plug 'tpope/vim-surround'                           " Surround stuff
-" Plug 'tpope/vim-vinegar'                            " Better netrw
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-ruby/vim-ruby'                            " Vim-Ruby integration
-Plug 'w0rp/ale'                                     " Async linter
-Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " Fuzzy finder
+" Showcase comments in italics
+highlight Comment cterm=italic gui=italic
 
-call plug#end()
 
-filetype plugin indent on
+"-------------------------------------------------------------------------------
+" Custom Movement
+"-------------------------------------------------------------------------------
 
-" colorscheme base16-ocean
-" let base16colorspace=256
-" set background=dark
-" highlight MatchParen ctermbg=blue guibg=lightblue
+" Don't deselect visual block after indent/unindent
+vnoremap < <gv
+vnoremap > >gv
 
-" FZF settings
-nnoremap <C-T> :Files<CR>
-nnoremap <C-B> :Buffers<CR>
-nnoremap <leader>/ :BLines<CR>
+" Shortcut for <CTRL> + hjkl to traverse panes
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
-" Make jump to tag open up FZF
-nnoremap <c-]> :Tags <c-r><c-w><cr>
+" Bash like keys for the Vim command line
+cnoremap <C-A> <Home>
+cnoremap <C-E> <End>
+cnoremap <C-K> <C-U>
 
-" Create a search command that uses Ripgrep and offers previews
-command! -bang -complete=file -nargs=* Search
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always '.<q-args>, 1,
-  \   <bang>0 ? fzf#vim#with_preview('up:60%')
-  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-  \   <bang>0)
-nnoremap \ :Ag<space>
-nnoremap K :Ag <C-R><C-W><CR>
-let g:fzf_buffers_jump = 1 " [Buffers] Jump to the existing window if possible
-
-" Multi-curosr settings
-let g:multi_cursor_next_key='<C-n>' " Multi-cursor set to CTRL+N
-
-" JSX settings
-let g:jsx_ext_required = 0 " JSX highlighting in .js files
-
-" Airline settings
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline_theme = 'base16'
-
-" NerdTree settings
-nnoremap - :NERDTreeFind<CR>
-let g:NERDTreeWinSize=40
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-" Prettier JS
-let g:prettier#config#print_width = 90
-let g:prettier#config#bracket_spacing = 'true'
-let g:prettier#config#trailing_comma = 'none'
-let g:prettier#config#jsx_bracket_same_line = 'false'
-autocmd Filetype javascript,typescript,typescript.tsx,css,scss,json nnoremap <leader>f :Prettier<CR>
-autocmd BufWritePre *.css,*.scss,*.less Prettier
-
-" vim-surround settings
-" Make 'o' work to surround text with nothing. Then use 'S' in vim-surround to
-" wrap the text in new lines.
-let b:surround_111 = "\r"
-
-" ALE settings
-
-" Turn off all highlights cuz they're ugly
-highlight clear ALEErrorSign
-highlight clear ALEWarningSign
-" let g:ale_completion_enabled = 1
-let g:ale_set_highlights = 0
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_fixers = {
-\ '*': ['remove_trailing_lines', 'trim_whitespace'],
-\ 'typescript': ['tslint'],
-\}
-let g:ale_fix_on_save = 1
+" Remap j and k to act as expected when used on long, wrapped, lines
+nnoremap j gj
+nnoremap k gk
 
 " Use ]d and [d to navigate between errors
 map <silent> [d <Plug>(ale_previous_wrap)
@@ -163,80 +117,19 @@ map <silent> ]d <Plug>(ale_next_wrap)
 nmap ]c <Plug>(GitGutterNextHunk)
 nmap [c <Plug>(GitGutterPrevHunk)
 
-" CoC settings
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other
-" plugin.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-autocmd BufNew,BufEnter *.go execute "silent! CocDisable"
-autocmd BufLeave *.go execute "silent! CocEnable"
+"-------------------------------------------------------------------------------
+" Custom Shortcuts
+"-------------------------------------------------------------------------------
 
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+" Source this file
+nnoremap <leader>sv :source<space>~/.vimrc<CR>
 
-hi Pmenu ctermfg=NONE ctermbg=238 cterm=NONE guifg=NONE guibg=#64666d gui=NONE
-hi PmenuSel ctermfg=NONE ctermbg=24 cterm=NONE guifg=NONE guibg=#204a87 gui=NONE
+" Redraw the screen
+map <silent> <Leader>r :redraw!<CR>
 
-" vim-go
-" https://github.com/fatih/vim-go-tutorial#quick-setup
-" vif // function text object
-" gS // split up an inline statement
-" gJ // join a multiline statement
-" :GoUpdateBinaries when things like go to def are broken
-" gd // go to definition
-" ctrl-t // back to previous definition
-" K // definition
-" ]] / [[ forward and backward to next funciton
-" leader i // show type info
-" leader b // run build
-" leader r // run
-" :GoReferrers // fins references
-" :GoRename // renames functions
-" :GoPlay // copies source code and puts it in go playground
-" run :GoBuild or :GoTestCompile based on the go file
-function! s:build_go_files()
-  let l:file = expand('%')
-  if l:file =~# '^\f\+_test\.go$'
-    call go#test#Test(0, 1)
-  elseif l:file =~# '^\f\+\.go$'
-    call go#cmd#Build(0)
-  endif
-endfunction
-autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
-autocmd FileType go nmap <leader>r  <Plug>(go-run)
-autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
-autocmd FileType go nmap <leader>t  <Plug>(go-test)
-let g:go_fmt_command = "goimports"
-let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
-let g:go_metalinter_autosave = 1
-" let g:go_metalinter_deadline = "5s"
-let g:go_list_type = "quickfix"
-" let g:go_highlight_types = 1
-let g:go_highlight_fields = 1
-let g:go_def_mapping_enabled = 0
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" Window management
-
-" Open new split panes to right and bottom, which feels more natural
-set splitbelow
-set splitright
-
-" Quicker window movement
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" Shortcuts
+" Quick search
+map <Leader>s :Search<Space>
 
 " Binding pry shortcut
 map <leader>bro orequire'pry';binding.pry<esc>:w<cr>
@@ -247,36 +140,19 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" Alter Vim's behavior
+" Override dot in visual mode to send a 'normal mode' dot
+xnoremap . :normal .<CR>
 
-" Persistent undo history
-if exists("+undofile")
-  if isdirectory($HOME . '/.vim/undo') == 0
-    :silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
-  endif
+" Use the @ key in visual mode to apply a given macro
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+function! ExecuteMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction
 
-  set undofile
-  set undodir=~/.vim/undo/
-endif
 
-" Don't copy the contents of an overwritten selection.
-vnoremap p "_dP
-vnoremap P "_dP
+"-------------------------------------------------------------------------------
+" Looking for more? Check out ~/.vim/plugin/* for plugin-specific configuration
+"-------------------------------------------------------------------------------
 
-" Traverse lines as they are seen not as as they are known to Vim
-nnoremap j gj
-nnoremap k gk
-
-" No arrow keys
-" nnoremap <Left> :echoe "Use h"<CR>
-" nnoremap <Right> :echoe "Use l"<CR>
-" nnoremap <Up> :echoe "Use k"<CR>
-" nnoremap <Down> :echoe "Use j"<CR>
-
-" Ignored files/directories from autocomplete (and CtrlP)
-set wildignore+=*/tmp/*
-set wildignore+=*.so
-set wildignore+=*.zip
-set wildignore+=*/vendor/bundle/*
-set wildignore+=*/node_modules/
+" vim: set syntax=vim:

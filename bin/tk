@@ -1,0 +1,5 @@
+#!/bin/bash
+#
+# Kill a tmux session by name
+
+tmux kill-session -t "$1" && tmux ls
