@@ -28,14 +28,12 @@ set incsearch                         " Show search results as you type
 set infercase                         " Ignore case on insert completion
 set laststatus=2                      " Show status line on startup
 set lazyredraw                        " Reduce the redraw frequency
+set matchpairs+=<:>                   " Also match angle brackets
 set nobackup nowritebackup noswapfile " Turn off backup files
 set noerrorbells novisualbell         " Turn off visual and audible bells
 set nohlsearch                        " Don't highlight search terms
-set nowrap                            " Don't wrap long lines
-set scrolloff=5                       " Leave 5 lines of buffer when scrolling
 set showcmd                           " Show size of visual selection
 set showfulltag                       " Show extra information when using tags in insert mode
-set sidescrolloff=10                  " Leave 10 characters of horizontal buffer when scrolling
 set splitbelow
 set splitright
 set timeoutlen=1000 ttimeoutlen=0     " Remove timeout when hitting escape
@@ -81,10 +79,6 @@ vnoremap P "_dP
 "-------------------------------------------------------------------------------
 " Colors & Formatting
 "-------------------------------------------------------------------------------
-
-" Showcase comments in italics
-highlight Comment cterm=italic gui=italic
-
 
 "-------------------------------------------------------------------------------
 " Custom Movement
