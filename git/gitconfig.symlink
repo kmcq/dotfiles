@@ -32,7 +32,7 @@
 [push]
   default = upstream
 [fetch]
-  prune = true
+	prune = true
 [rebase]
   autosquash = true
 [filter "lfs"]
@@ -44,3 +44,5 @@
   gpgsign = true
 [hub]
   protocol = https
+[pull]
+	rebase = true
