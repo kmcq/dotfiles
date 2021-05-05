@@ -39,5 +39,7 @@
     "workbench.sideBar.location": "left",
     "vim.commandLineModeKeyBindings": [
     
-    ]
+    ],
+    "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
+    "workbench.colorTheme": "GitHub Dark"
 }
