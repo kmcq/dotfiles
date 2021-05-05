@@ -1,10 +1,8 @@
 tap 'universal-ctags/universal-ctags'
 
-brew 'alacritty'
 brew 'ansible'
 brew 'bat'
 brew 'bgpq3'
-brew 'fish'
 brew 'fzf'
 brew 'gh'
 brew 'gist'
@@ -28,3 +26,4 @@ brew 'tmux'
 brew 'universal-ctags/universal-ctags/universal-ctags', args: ['HEAD']
 brew 'wget'
 brew 'vim'
+brew 'zsh'

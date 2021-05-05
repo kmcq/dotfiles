@@ -24,7 +24,6 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-eunuch'
 
 " Syntax highlighting
-" Plug 'dag/vim-fish'
 " Plug 'groenewege/vim-less'
 " Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'HerringtonDarkholme/yats.vim', { 'for': ['typescript']}
