@@ -1,3 +1,4 @@
 ---
 BUNDLE_CONSOLE: "pry"
 BUNDLE_BUILD__NOKOGIRI: ""
+BUNDLE_PATH: "vendor/cache"
