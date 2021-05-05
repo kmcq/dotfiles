@@ -46,6 +46,7 @@ Plug 'junegunn/goyo.vim'
 
 " Git support
 Plug 'tpope/vim-rhubarb' | Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
 
 " ctags
 Plug 'ludovicchabant/vim-gutentags'
@@ -59,6 +60,11 @@ Plug 'bswinnerton/vim-test-github'
 
 " Display hex colors
 Plug 'chrisbra/Colorizer'
+Plug 'ayu-theme/ayu-vim'
+Plug 'habamax/vim-colors-defnoche'
+Plug 'ts-26a/vim-darkspace'
+Plug 'plainfingers/black_is_the_color'
+Plug 'jasoncarr0/sidewalk-colorscheme'
 
 " Gist
 Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim'

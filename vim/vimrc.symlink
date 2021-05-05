@@ -84,9 +84,17 @@ vnoremap P "_dP
 " Custom Movement
 "-------------------------------------------------------------------------------
 
-" Don't deselect visual block after indent/unindent
-vnoremap < <gv
-vnoremap > >gv
+" These don't work yet :/
+nnoremap <silent> <C-K> :move-2<cr>
+nnoremap <silent> <C-J> :move+<cr>
+nnoremap <silent> <C-H> <<
+nnoremap <silent> <C-L> >>
+xnoremap <silent> <C-K> :move-2<cr>gv
+xnoremap <silent> <C-J> :move'>+<cr>gv
+xnoremap <silent> <C-H> <gv
+xnoremap <silent> <C-L> >gv
+xnoremap < <gv
+xnoremap > >gv
 
 " Shortcut for <CTRL> + hjkl to traverse panes
 nnoremap <C-h> <C-w>h
@@ -144,6 +152,12 @@ function! ExecuteMacroOverVisualRange()
   execute ":'<,'>normal @".nr2char(getchar())
 endfunction
 
+" Just place your caret on a word, hit c* and type, hit <esc> and then hit .
+" as many time as you want to repeat
+nnoremap c* *Ncgn
+nnoremap c# #NcgN
+nnoremap d* *Ndgn
+nnoremap d# #NdgN
 
 "-------------------------------------------------------------------------------
 " Looking for more? Check out ~/.vim/plugin/* for plugin-specific configuration
