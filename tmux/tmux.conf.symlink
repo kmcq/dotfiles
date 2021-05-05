@@ -11,10 +11,11 @@ set-option -g renumber-windows on
 # Get copy paste to work
 set-option -g default-command "reattach-to-user-namespace -l zsh"
 
-# Setup 'v' to begin selection as in Vim
-bind-key -T copy-mode-vi v send-keys -X begin-selection
-# bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
-bind-key -T copy-mode 'y' send -X copy-pipe-and-cancel "pbcopy"
+# Vim scroll and selection
+set-window-option -g mode-keys vi
+bind-key -T copy-mode-vi v send -X begin-selection
+bind-key -T copy-mode-vi V send -X select-line
+bind-key -T copy-mode-vi y send -X copy-pipe-and-cancel 'xclip -in -selection clipboard'
 bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
 
 # switch between last pane or last window if no panes
