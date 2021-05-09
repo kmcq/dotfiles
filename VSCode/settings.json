@@ -41,5 +41,5 @@
     
     ],
     "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
-    "workbench.colorTheme": "GitHub Dark"
+    "workbench.colorTheme": "GitHub Dark Default"
 }
