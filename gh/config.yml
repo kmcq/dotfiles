@@ -10,10 +10,12 @@ pager: !!null delta -s
 aliases:
     co: '!id="$(gh pr list -L100 | fzf | cut -f1)"; [ -n "$id" ] && gh pr checkout "$id"'
     review: '!id="$(gh pr list -L100 | fzf | cut -f1)"; [ -n "$id" ] && gh pr diff "$id"'
-    oncall: '!id="$(gh issue list -R github/platform-health --label on-call -a kmcq | cut -f1)"; [ -n "$id" ] && gh issue view -R github/platform-health "$id"'
-    phsync: '!id="$(gh issue list -R github/platform-health --label "sync 🔄" | cut -f1)"; [ -n "$id" ] && gh issue view -R github/platform-health "$id"'
+    oncall: issue list -R github/platform-health -S eng -l on-call -L1 --json url -q '.[].url'
+    phsync: issue list -R github/platform-health -l "sync 🔄" -L1 --json url -q '.[].url'
     ime: issue list -A kmcq
     issues: issue list
+    ic: issue comment
+    ie: issue edit
     iv: issue view
     prs: pr list
     prss: pr list -R $($1 || "github/hamzo")
