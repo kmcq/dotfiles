@@ -89,11 +89,6 @@ highlight SignColumn guibg=red
 " Custom Movement
 "-------------------------------------------------------------------------------
 
-" These don't work yet :/
-nnoremap <silent> <C-K> :move-2<cr>
-nnoremap <silent> <C-J> :move+<cr>
-nnoremap <silent> <C-H> <<
-nnoremap <silent> <C-L> >>
 xnoremap <silent> <C-K> :move-2<cr>gv
 xnoremap <silent> <C-J> :move'>+<cr>gv
 xnoremap <silent> <C-H> <gv
