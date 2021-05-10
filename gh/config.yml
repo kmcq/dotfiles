@@ -10,12 +10,14 @@ pager: !!null delta -s
 aliases:
     co: '!id="$(gh pr list -L100 | fzf | cut -f1)"; [ -n "$id" ] && gh pr checkout "$id"'
     review: '!id="$(gh pr list -L100 | fzf | cut -f1)"; [ -n "$id" ] && gh pr diff "$id"'
+    oncall: '!id="$(gh issue list -R github/platform-health --label on-call -a kmcq | cut -f1)"; [ -n "$id" ] && gh issue view -R github/platform-health "$id"'
+    phsync: '!id="$(gh issue list -R github/platform-health --label "sync 🔄" | cut -f1)"; [ -n "$id" ] && gh issue view -R github/platform-health "$id"'
     ime: issue list -A kmcq
     issues: issue list
+    iv: issue view
     prs: pr list
     prss: pr list -R $($1 || "github/hamzo")
     prsfor: pr list -R $1
+    prv: pr view
     grid: >
         !gh api graphql -f"login=$1" -F=query='query($login:String!) { user(login:$login) { id } }' | jq -r '.data.user.id' | pbcopy | echo "Copied to clipboard."
-
-    work: issue view https://github.com/github/platform-health/issues/2152
