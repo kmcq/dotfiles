@@ -9,6 +9,7 @@ pager: !!null delta -s
 # Aliases allow you to create nicknames for gh commands
 aliases:
     co: '!id="$(gh pr list -L100 | fzf | cut -f1)"; [ -n "$id" ] && gh pr checkout "$id"'
+    review: '!id="$(gh pr list -L100 | fzf | cut -f1)"; [ -n "$id" ] && gh pr diff "$id"'
     ime: issue list -A kmcq
     issues: issue list
     prs: pr list
