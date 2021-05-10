@@ -25,6 +25,9 @@
 [core]
   excludesfile = ~/.gitignore
   editor = vim
+  pager = delta
+[interactive]
+    diffFilter = delta --color-only
 [difftool]
   prompt = false
 [mergetool]
@@ -32,7 +35,7 @@
 [push]
   default = upstream
 [fetch]
-	prune = true
+  prune = true
 [rebase]
   autosquash = true
 [filter "lfs"]
@@ -46,3 +49,11 @@
   protocol = https
 [pull]
 	rebase = true
+[delta]
+    features = line-numbers decorations
+    whitespace-error-style = 22 reverse
+    minus-style = red bold
+[delta "decorations"]
+    commit-decoration-style = bold yellow ul
+    file-style = bold yellow ul
+    file-decoration-style = none
