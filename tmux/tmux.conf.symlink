@@ -30,9 +30,9 @@ set-option -g mouse on
 
 set-option -g status-position top    # position the status bar at top of screen
 set-option -g status-justify left
-set-option -g status-left '#[bg=#58a6ff] #S #[bg=#2f363d] '
+set-option -g status-left '#[bg=#58a6ff] #S #[bg=#0D1118] '
 set-option -g status-left-length 16
-set-option -g status-bg '#2f363d'
+set-option -g status-bg '#0D1117'
 # set-option -g status-right '#[fg=colour175] %a %b %d #[fg=colour210,bold] %l:%M%P '
 # set -g status-right-length 200
 # set -g status-right '#[fg=colour210,bold] Batt: #{battery_percentage} | %a %h-%d %H:%M '
