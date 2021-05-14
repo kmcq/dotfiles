@@ -16,10 +16,15 @@ aliases:
     issues: issue list
     ic: issue comment
     ie: issue edit
+    il: issue list
+    is: issue status
     iv: issue view
-    prs: pr list
-    prss: pr list -R $($1 || "github/hamzo")
-    prsfor: pr list -R $1
-    prv: pr view
+    pc: pr comment
+    pd: pr diff
+    pe: pr edit
+    pl: pr list
+    prev: pr review
+    ps: pr status
+    pv: pr view
     grid: >
         !gh api graphql -f"login=$1" -F=query='query($login:String!) { user(login:$login) { id } }' | jq -r '.data.user.id' | pbcopy | echo "Copied to clipboard."
