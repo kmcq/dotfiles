@@ -1,7 +1,7 @@
 #!/bin/bash
 
-config_dir=~/.config
-config_file=$config_dir/gh/config.yml
+config_dir=~/.config/gh
+config_file=$config_dir/config.yml
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 mkdir -p $config_dir

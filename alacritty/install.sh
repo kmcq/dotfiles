@@ -1,7 +1,7 @@
 #!/bin/bash
 
-config_dir=~/.config
-config_file=$config_dir/alacritty/alacritty.yml
+config_dir=~/.config/alacritty
+config_file=$config_dir/alacritty.yml
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 mkdir -p $config_dir
