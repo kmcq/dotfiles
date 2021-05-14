@@ -34,7 +34,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
-Plug 'zerowidth/vim-copy-as-rtf'
+" Plug 'zerowidth/vim-copy-as-rtf'
 
 " Syntax errors
 Plug 'w0rp/ale'
