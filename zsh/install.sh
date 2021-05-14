@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 current_user=$(whoami)
 zsh_path=$(which zsh)

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 config_dir=~/.config
 config_file=$config_dir/gh/config.yml

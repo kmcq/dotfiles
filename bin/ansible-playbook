@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Gets around the fork safety problem in OS X.
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
