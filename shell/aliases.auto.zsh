@@ -18,7 +18,7 @@ alias now="vercel"
 
 ### GIT ###
 alias g="git"
-alias gb="git branch"
+alias gb="git recent"
 alias gp="git pull"
 alias gs="git status"
 alias gpr="git pull --rebase"

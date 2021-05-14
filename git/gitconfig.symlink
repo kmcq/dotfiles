@@ -17,6 +17,7 @@
   delete-merged-branches = "!git co master && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
   st = status
   staged = diff --staged
+	recent = branch --sort=committerdate --format=\"%(committerdate:relative)%09%(refname:short)\"
 [color]
   diff = auto
   status = auto
