@@ -1,5 +1,5 @@
 # shortcut to this dotfiles path is $ZSH
-export ZSH=$HOME/.dotfiles
+export ZSH="$(dirname `readlink ~/.zshrc`)/../"
 
 # all of our zsh files
 typeset -U config_files
@@ -55,7 +55,9 @@ export PATH="$HOME/go/bin:$PATH"
 eval "$(rbenv init -)"
 eval "$(nodenv init -)"
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-if [[ "$(expr substr $(uname -s) 1 5)" = "Linux" ]]
+echo a
+if [[ "${$(uname -s):0:5}" = "Linux" ]]
 then
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
+echo b
