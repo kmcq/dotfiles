@@ -1,9 +1,9 @@
 [user]
-  name = AUTHOR_NAME
-  email = AUTHOR_EMAIL
+  name = Keith McHugh
+  email = kmcq@github.com
   signingkey = GPG_SIGNING_KEY
 [github]
-  user = AUTHOR_HANDLE
+  user = kmcq
 [credential]
   helper = GIT_CREDENTIAL_HELPER
 [alias]

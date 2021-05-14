@@ -31,24 +31,21 @@ setup_gitconfig () {
   then
     info 'setup gitconfig'
 
-    gpg --default-new-key-algo rsa4096 --gen-key
+    cp git/gitconfig.symlink.example git/gitconfig.symlink
 
     git_credential='cache'
     if [ "$(uname -s)" == "Darwin" ]
     then
+      gpg --default-new-key-algo rsa4096 --gen-key
+      user ' - What is your GPG signing key? (Run `gpg --list-keys`)'
+      read -e gpg_signing_key
       git_credential='osxkeychain'
+      sed -e "s/GPG_SIGNING_KEY/$gpg_signing_key/g" git/gitconfig.symlink > git/gitconfig.symlink
+    else
+      sed -e "s/gpgsign = true/gpgsign = false/" git/gitconfig.symlink > git/gitconfig.symlink
     fi
 
-    user ' - What is your github author name?'
-    read -e git_authorname
-    user ' - What is your github author email?'
-    read -e git_authoremail
-    user ' - What is your github username?'
-    read -e git_authorhandle
-    user ' - What is your GPG signing key? (Run `gpg --list-keys`)'
-    read -e gpg_signing_key
-
-    sed -e "s/AUTHOR_NAME/$git_authorname/g" -e "s/AUTHOR_EMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" -e "s/AUTHOR_HANDLE/$git_authorhandle/g" -e "s/GPG_SIGNING_KEY/$gpg_signing_key/g" git/gitconfig.symlink.example > git/gitconfig.symlink
+    sed -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/gitconfig.symlink > git/gitconfig.symlink
 
     success 'gitconfig'
   fi
