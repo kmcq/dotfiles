@@ -55,3 +55,7 @@ export PATH="$HOME/go/bin:$PATH"
 eval "$(rbenv init -)"
 eval "$(nodenv init -)"
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+if [[ "$(expr substr $(uname -s) 1 5)" = "Linux" ]]
+then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
