@@ -8,9 +8,14 @@
 # Install Brew if it's not already installed
 if ! [ -x "$(command -v brew)" ]; then
   echo "Installing Homebrew for you."
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  if [[ "$(expr substr $(uname -s) 1 5)" = "Linux" ]]; then
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  if [[ "$(uname -s)" = "Darwin" ]]
+  then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  else
+    git clone https://github.com/Homebrew/brew ~/.linuxbrew/Homebrew
+    mkdir ~/.linuxbrew/bin
+    ln -s ~/.linuxbrew/Homebrew/bin/brew ~/.linuxbrew/bin
+    eval $(~/.linuxbrew/bin/brew shellenv)
   fi
 fi
 
