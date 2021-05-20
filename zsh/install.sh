@@ -5,6 +5,9 @@ zsh_path=$(which zsh)
 
 [ ! $(grep -q "zsh" "/etc/shells") ] || $zsh_path | sudo tee -a /etc/shells
 
-sudo chsh -s $zsh_path $current_user
+if [ "$(uname -s)" == "Darwin" ]
+then
+  sudo chsh -s $zsh_path $current_user
+fi
 
 unset current_user zsh_path
