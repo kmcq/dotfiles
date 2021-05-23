@@ -44,11 +44,6 @@ done
 
 unset config_files
 
-if [[ "${$(uname -s):0:5}" = "Linux" ]]
-then
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-fi
-
 # Resource FZF to ensure keybindings are set on top of ZSH
 source $ZSH/fzf/fzf.zsh
 
