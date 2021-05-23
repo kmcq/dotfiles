@@ -1,0 +1,8 @@
+ForwardAgent yes
+AddKeysToAgent yes
+
+Host codespaces
+	User root
+	Hostname localhost
+	Port 2222
+	NoHostAuthenticationForLocalhost yes
