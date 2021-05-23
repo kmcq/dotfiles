@@ -21,11 +21,11 @@
     "vim.normalModeKeyBindings": [
         {
             "before": ["j"],
-            "after": ["g", "j"],
+            "after": ["g", "j"]
         },
         {
             "before": ["k"],
-            "after": ["g", "k"],
+            "after": ["g", "k"]
         },
         {
             "before": ["]", "c"],
@@ -34,11 +34,10 @@
         {
             "before": ["[", "c"],
             "commands": ["workbench.action.editor.previousChange"]
-        },
+        }
     ],
     "workbench.sideBar.location": "left",
     "vim.commandLineModeKeyBindings": [
-    
     ],
     "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
     "workbench.colorTheme": "GitHub Dark Default",
@@ -47,5 +46,15 @@
             "viewType": "jupyter.notebook.ipynb",
             "filenamePattern": "*.ipynb"
         }
-    ]
+    ],
+    "terminal.integrated.profiles.linux": {
+        "zsh": {
+            "path": "zsh"
+        }
+    },
+    "terminal.integrated.profiles.osx": {
+        "zsh": {
+            "path": "zsh"
+        }
+    }
 }
