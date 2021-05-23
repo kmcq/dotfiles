@@ -45,7 +45,10 @@ alias tl='tmux ls'
 ### EXTRAS ###
 
 # ctags fix. OSX ctags is bad - this forces use of brew's ctags
-alias ctags="`brew --prefix`/bin/ctags"
+if [[ "$(uname -s)" == "Darwin" ]]
+then
+  alias ctags="`brew --prefix`/bin/ctags"
+fi
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
