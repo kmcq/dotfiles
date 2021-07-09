@@ -67,13 +67,8 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'janko-m/vim-test'
 Plug 'bswinnerton/vim-test-github'
 
-" Display hex colors
 Plug 'chrisbra/Colorizer'
-Plug 'ayu-theme/ayu-vim'
-Plug 'habamax/vim-colors-defnoche'
-Plug 'ts-26a/vim-darkspace'
-Plug 'plainfingers/black_is_the_color'
-Plug 'jasoncarr0/sidewalk-colorscheme'
+Plug 'projekt0n/github-nvim-theme'
 
 " Gist
 Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim'
