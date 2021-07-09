@@ -1,6 +1,5 @@
 nnoremap <C-T> :Files<CR>
 nnoremap <C-B> :Buffers<CR>
-nnoremap <leader>/ :BLines<CR>
 
 " Make jump to tag open up FZF
 nnoremap <c-]> :Tags <c-r><c-w><cr>
