@@ -108,7 +108,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux) monospace
     #   - (Windows) Consolas
-    family: "JetBrains Mono"
+    family: "JetBrainsMono Nerd Font Mono"
 
     # The `style` can be specified to pick a specific face.
     #style: Regular
@@ -170,144 +170,37 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
-# colors:
-#   # Default colors
-#   primary:
-#     background: '0x06080a'
-#     foreground: '0xdbdbdb'
-
-#   # Cursor colors
-#   cursor:
-#     text:   '0x000000'
-#     cursor: '0xfefffe'
-
-#   # Normal colors
-#   normal:
-#     black:   '0x000000'
-#     red:     '0xb43c29'
-#     green:   '0x00c200'
-#     yellow:  '0xc7c400'
-#     blue:    '0x2743c7'
-#     magenta: '0xbf3fbd'
-#     cyan:    '0x00c5c7'
-#     white:   '0xc7c7c7'
-
-#   # Bright colors
-#   bright:
-#     black:   '0x676767'
-#     red:     '0xdc7974'
-#     green:   '0x57e690'
-#     yellow:  '0xece100'
-#     blue:    '0xa6aaf1'
-#     magenta: '0xe07de0'
-#     cyan:    '0x5ffdff'
-#     white:   '0xfeffff'
-
 colors:
   # Default colors
   primary:
-    background: '0x0d1117'
-    foreground: '0xc9d1d9'
+    background: '0x24292e'
+    foreground: '0xd1d5da'
 
   # Normal colors
   normal:
-    black:   '0x0d1117'
-    red:     '0xff7c73'
-    green:   '0x3fb950'
-    yellow:  '0xd29922'
-    blue:    '0x58a6ff'
-    magenta: '0xbc8cff'
-    cyan:    '0x76e3ea'
-    white:   '0xb1bac4'
+    black:   '0x1D2125'
+    red:     '0xf14c4c'
+    green:   '0x23d18b'
+    yellow:  '0xe2e210'
+    blue:    '0x3b8eea'
+    magenta: '0xbc3fbc'
+    cyan:    '0x29b7da'
+    white:   '0xd1d5da'
 
   # Bright colors
   bright:
-    black:   '0x959da5'
-    red:     '0xffa198'
-    green:   '0x56d364'
-    yellow:  '0xe3b341'
-    blue:    '0x79c0ff'
-    magenta: '0xd2a8ff'
-    cyan:    '0xb3f0ff'
-    white:   '0xb1bac4'
+    black:   '0x666666'
+    red:     '0xf14c4c'
+    green:   '0x23d18b'
+    yellow:  '0xf5f543'
+    blue:    '0x3b8eea'
+    magenta: '0xd670d6'
+    cyan:    '0x29b7da'
+    white:   '0xd1d5da'
 
-# Colors (Tomorrow Night Bright)
-# colors:
-  # Default colors
-  # primary:
-  #   background: '0x000000'
-  #   foreground: '0xFFFFFF'
-
-    # Bright and dim foreground colors
-    #
-    # The dimmed foreground color is calculated automatically if it is not present.
-    # If the bright foreground color is not set, or `draw_bold_text_with_bright_colors`
-    # is `false`, the normal foreground color will be used.
-    #dim_foreground: '0x9a9a9a'
-    #bright_foreground: '0xffffff'
-
-  # Cursor colors
-  #
-  # Colors which should be used to draw the terminal cursor. If these are unset,
-  # the cursor color will be the inverse of the cell color.
-  #cursor:
-  #  text: '0x000000'
-  #  cursor: '0xffffff'
-
-  # Selection colors
-  #
-  # Colors which should be used to draw the selection area. If selection
-  # background is unset, selection color will be the inverse of the cell colors.
-  # If only text is unset the cell text color will remain the same.
-  # selection:
-    # text: '0xeaeaea'
-    # background: '0x404040'
-
-  # Normal colors
-  # normal:
-  #   black:   '0x000000'
-  #   red:     '0xd54e53'
-  #   green:   '0xb9ca4a'
-  #   yellow:  '0xe6c547'
-  #   blue:    '0x7aa6da'
-  #   magenta: '0xc397d8'
-  #   cyan:    '0x70c0ba'
-  #   white:   '0xeaeaea'
-
-  # Bright colors
-  # bright:
-  #   black:   '0x666666'
-  #   red:     '0xff3334'
-  #   green:   '0x9ec400'
-  #   yellow:  '0xe7c547'
-  #   blue:    '0x7aa6da'
-  #   magenta: '0xb77ee0'
-  #   cyan:    '0x54ced6'
-  #   white:   '0xffffff'
-
-  # Dim colors
-  #
-  # If the dim colors are not set, they will be calculated automatically based
-  # on the `normal` colors.
-  #dim:
-  #  black:   '0x000000'
-  #  red:     '0x8c3336'
-  #  green:   '0x7a8530'
-  #  yellow:  '0x97822e'
-  #  blue:    '0x506d8f'
-  #  magenta: '0x80638e'
-  #  cyan:    '0x497e7a'
-  #  white:   '0x9a9a9a'
-
-  # Indexed Colors
-  #
-  # The indexed colors include all colors from 16 to 256.
-  # When these are not set, they're filled with sensible defaults.
-  #
-  # Example:
-  #   `- { index: 16, color: '0xff00ff' }`
-  #
-  indexed_colors: []
+  indexed_colors:
+    - { index: 16, color: '0xd18616' }
+    - { index: 17, color: '0xf14c4c' }
 
 # Visual Bell
 #
