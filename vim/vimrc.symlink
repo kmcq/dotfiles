@@ -90,9 +90,13 @@ vnoremap P "_dP
 "-------------------------------------------------------------------------------
 
 syntax on
-set background=dark
-colorscheme peachpuff
-highlight SignColumn guibg=red
+if has('nvim')
+  lua require('github-theme').setup()
+else
+  set background=dark
+  colorscheme peachpuff
+  highlight SignColumn guibg=red
+endif
 
 "-------------------------------------------------------------------------------
 " Custom Movement
