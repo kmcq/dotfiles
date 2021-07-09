@@ -19,7 +19,7 @@ set autoread                          " Auto reload changed files
 set autowrite                         " :write before running commands
 set backspace=indent,eol,start        " http://vi.stackexchange.com/a/2163
 set cmdheight=2
-set completeopt=menuone,preview
+set completeopt=menuone,noselect
 set diffopt+=vertical                 " Always use vertical diffs
 set expandtab shiftwidth=2 tabstop=2  " Two spaces for tabs everywhere
 set gdefault

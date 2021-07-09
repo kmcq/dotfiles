@@ -30,18 +30,27 @@ if has('nvim')
   endfunction
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': function('InstallTreesitterLanguages') }
   Plug 'jparise/vim-graphql' " nvim-treesitter graphql doesn't work
+
+  Plug 'hrsh7th/nvim-compe'
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'jose-elias-alvarez/nvim-lsp-ts-utils', { 'branch': 'develop' }
+  Plug 'glepnir/lspsaga.nvim'
+  Plug 'nvim-lua/plenary.nvim'
+
 else
+
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'HerringtonDarkholme/yats.vim', { 'for': ['typescript']}
   Plug 'fatih/vim-go'
   Plug 'jparise/vim-graphql'
   Plug 'sheerun/vim-polyglot'
   " Plug 'tpope/vim-endwise'
-  Plug 'tpope/vim-markdown'
   Plug 'tpope/vim-rails'
   Plug 'vim-ruby/vim-ruby'
   Plug 'w0rp/ale'
 endif
+
+Plug 'tpope/vim-markdown'
 
 " Tmux integration
 " Plug 'benmills/vimux'
