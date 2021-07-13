@@ -5,7 +5,6 @@ call plug#begin('~/.vim/plugged')
 " Plug 'ervandew/supertab'
 Plug 'itchyny/lightline.vim'
 Plug 'AndrewRadev/splitjoin.vim'                    " Toggle between multi- and single-line expressions
-Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-commentary'
@@ -28,6 +27,9 @@ if has('nvim')
       TSUpdate
     endif
   endfunction
+
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'lewis6991/gitsigns.nvim'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': function('InstallTreesitterLanguages') }
   Plug 'jparise/vim-graphql' " nvim-treesitter graphql doesn't work
 
@@ -48,6 +50,7 @@ else
   Plug 'tpope/vim-rails'
   Plug 'vim-ruby/vim-ruby'
   Plug 'w0rp/ale'
+  Plug 'airblade/vim-gitgutter'
 endif
 
 Plug 'tpope/vim-markdown'
