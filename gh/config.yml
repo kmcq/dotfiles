@@ -1,7 +1,7 @@
 # What protocol to use when performing git operations. Supported values: ssh, https
 git_protocol: https
 # What editor gh should run when creating issues, pull requests, etc. If blank, will refer to environment.
-editor: vim
+editor: nvim
 # When to interactively prompt. This is a global config that cannot be overridden by hostname. Supported values: enabled, disabled
 prompt: enabled
 # A pager program to send command output to, e.g. "less". Set the value to "cat" to disable the pager.
@@ -11,7 +11,7 @@ aliases:
     co: '!id="$(gh pr list -L100 | fzf | cut -f1)"; [ -n "$id" ] && gh pr checkout "$id"'
     review: '!id="$(gh pr list -L100 | fzf | cut -f1)"; [ -n "$id" ] && gh pr diff "$id"'
     oncall: issue list -R github/platform-health -S eng -l on-call -L1 --json url -q '.[].url'
-    phsync: issue list -R github/platform-health -l "sync 🔄" -L1 --json url -q '.[].url'
+    phsync: "issue list -R github/platform-health -l \"sync \U0001F504\" -L1 --json url -q '.[].url'"
     ime: issue list -A kmcq
     issues: issue list
     ic: issue comment
@@ -28,3 +28,6 @@ aliases:
     pv: pr view
     grid: >
         !gh api graphql -f"login=$1" -F=query='query($login:String!) { user(login:$login) { id } }' | jq -r '.data.user.id' | pbcopy | echo "Copied to clipboard."
+
+    approve: pr review --approve
+    prengme: pr edit --add-reviewer github/platform-health-engineers --add-assignee @me
