@@ -50,6 +50,8 @@ vim.api.nvim_set_keymap('c', '%%', "getcmdtype() == ':' ? expand('%:h').'/' : '%
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.dashboard.active = true
 lvim.builtin.terminal.active = false
+lvim.builtin.which_key.active = false
+
 lvim.builtin.nvimtree.side = "left"
 lvim.builtin.nvimtree.show_icons.git = 0
 lvim.builtin.nvimtree.width = 50
