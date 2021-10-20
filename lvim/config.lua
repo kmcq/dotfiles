@@ -4,7 +4,6 @@
 -- general
 lvim.format_on_save = true
 lvim.lint_on_save = true
-lvim.builtin.telescope.defaults.layout_config.width = 0.95
 
 -- keymappings [view all by pressing <leader>Lk]
 lvim.leader = "space"
@@ -50,7 +49,11 @@ vim.api.nvim_set_keymap('c', '%%', "getcmdtype() == ':' ? expand('%:h').'/' : '%
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.dashboard.active = true
 lvim.builtin.terminal.active = false
-lvim.builtin.which_key.active = false
+
+-- makes which-key take a long time to show up
+vim.opt.timeoutlen = 5000
+
+lvim.builtin.telescope.defaults.layout_config.width = 0.95
 
 lvim.builtin.nvimtree.side = "left"
 lvim.builtin.nvimtree.show_icons.git = 0
