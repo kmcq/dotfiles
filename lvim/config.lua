@@ -9,7 +9,7 @@ lvim.lint_on_save = true
 lvim.leader = "space"
 lvim.keys.normal_mode["-"] = "<cmd>:NvimTreeToggle<cr>"
 lvim.keys.normal_mode["<C-s>"] = "<cmd>w<cr>"
-lvim.keys.normal_mode["<C-b>"] = "<cmd>Telescope buffers<cr>"
+lvim.keys.normal_mode["<C-b>"] = "<cmd>lua require('telescope.builtin').buffers({ sort_lastused = true, ignore_current_buffer = true })<cr>"
 lvim.keys.normal_mode["<C-t>"] = "<cmd>Telescope git_files<cr>"
 lvim.keys.normal_mode["\\"] = "<cmd>Telescope live_grep<cr>"
 lvim.keys.normal_mode["[c"] = "<cmd>lua require 'gitsigns'.next_hunk()<cr>"
