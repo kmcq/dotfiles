@@ -49,6 +49,7 @@ vim.api.nvim_set_keymap('c', '%%', "getcmdtype() == ':' ? expand('%:h').'/' : '%
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.dashboard.active = true
 lvim.builtin.terminal.active = false
+lvim.builtin.bufferline.active = false
 
 -- makes which-key take a long time to show up
 vim.opt.timeoutlen = 5000
