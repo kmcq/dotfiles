@@ -1,6 +1,5 @@
 -- TODO Things to change
 -- - K for search current word (use telescope though?)
--- - Add this to dotfiles!
 
 -- general
 lvim.format_on_save = true
@@ -16,6 +15,19 @@ lvim.keys.normal_mode["<C-t>"] = "<cmd>Telescope git_files<cr>"
 lvim.keys.normal_mode["\\"] = "<cmd>Telescope live_grep<cr>"
 lvim.keys.normal_mode["[c"] = "<cmd>lua require 'gitsigns'.next_hunk()<cr>"
 lvim.keys.normal_mode["]c"] = "<cmd>lua require 'gitsigns'.prev_hunk()<cr>"
+lvim.keys.normal_mode["<A-j>"] = "j"
+lvim.keys.normal_mode["<A-k>"] = "k"
+lvim.keys.normal_mode["<leader><leader>"] = "<c-^>"
+
+-- Just place your caret on a word, hit c* and type, hit <esc> and then hit .
+-- as many time as you want to repeat
+lvim.keys.normal_mode["c*"] = "*Ncgn"
+lvim.keys.normal_mode["c#"] = "#NcgN"
+lvim.keys.normal_mode["d*"] = "*Ndgn"
+lvim.keys.normal_mode["d#"] = "#NdgN"
+
+lvim.keys.normal_mode["<leader>bro"] = "orequire'pry';binding.pry<esc>:w<cr>"
+vim.api.nvim_set_keymap('c', '%%', "getcmdtype() == ':' ? expand('%:h').'/' : '%%'", { expr = true, noremap = true })
 
 -- unmap a default keymapping
 -- lvim.keys.normal_mode["<C-Up>"] = ""
@@ -37,9 +49,10 @@ lvim.keys.normal_mode["]c"] = "<cmd>lua require 'gitsigns'.prev_hunk()<cr>"
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.dashboard.active = true
-lvim.builtin.terminal.active = true
+lvim.builtin.terminal.active = false
 lvim.builtin.nvimtree.side = "left"
 lvim.builtin.nvimtree.show_icons.git = 0
+lvim.builtin.nvimtree.width = 50
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = { "json", "yaml", "go", "ruby", "tsx", "typescript" }
@@ -101,6 +114,7 @@ lvim.plugins = {
         },
         ft = {"fugitive"}
     },
+    {"tpope/vim-rhubarb"},
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
