@@ -7,7 +7,7 @@ lvim.lint_on_save = true
 
 -- keymappings [view all by pressing <leader>Lk]
 lvim.leader = "space"
-lvim.keys.normal_mode["-"] = "<cmd>:NvimTreeToggle<cr>"
+lvim.keys.normal_mode["-"] = "<cmd>:NERDTreeFind<cr>"
 lvim.keys.normal_mode["<C-s>"] = "<cmd>w<cr>"
 lvim.keys.normal_mode["<C-b>"] = "<cmd>lua require('telescope.builtin').buffers({ sort_lastused = true, ignore_current_buffer = true })<cr>"
 lvim.keys.normal_mode["<C-t>"] = "<cmd>Telescope git_files<cr>"
@@ -56,9 +56,10 @@ vim.opt.timeoutlen = 5000
 
 lvim.builtin.telescope.defaults.layout_config.width = 0.95
 
-lvim.builtin.nvimtree.side = "left"
-lvim.builtin.nvimtree.show_icons.git = 0
-lvim.builtin.nvimtree.width = 50
+lvim.builtin.nvimtree.active = false
+-- lvim.builtin.nvimtree.side = "left"
+-- lvim.builtin.nvimtree.show_icons.git = 0
+-- lvim.builtin.nvimtree.width = 50
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = { "json", "yaml", "go", "ruby", "tsx", "typescript" }
@@ -121,6 +122,7 @@ lvim.plugins = {
         ft = {"fugitive"}
     },
     {"tpope/vim-rhubarb"},
+    {"preservim/nerdtree"},
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
