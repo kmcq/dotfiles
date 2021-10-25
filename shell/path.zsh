@@ -1,5 +1,6 @@
 case "$(uname -s)" in
   Darwin)
+    export PATH="$HOME/.local/bin:$PATH"
     export PATH="/usr/local/bin:$PATH"
     ;;
 
