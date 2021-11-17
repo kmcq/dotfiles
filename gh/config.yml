@@ -30,4 +30,5 @@ aliases:
         !gh api graphql -f"login=$1" -F=query='query($login:String!) { user(login:$login) { id } }' | jq -r '.data.user.id' | pbcopy | echo "Copied to clipboard."
 
     approve: pr review --approve
-    prengme: pr edit --add-reviewer github/platform-health-engineers --add-assignee @me
+    prengme: pr create -r github/platform-health-engineers -a @me
+    preengme: pr edit --add-reviewer github/platform-health-engineers --add-assignee @me

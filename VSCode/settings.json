@@ -54,5 +54,6 @@
             "path": "zsh"
         }
     },
-    "editor.inlineSuggest.enabled": true
+    "editor.inlineSuggest.enabled": true,
+    "redhat.telemetry.enabled": false
 }

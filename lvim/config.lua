@@ -12,8 +12,8 @@ lvim.keys.normal_mode["<C-s>"] = "<cmd>w<cr>"
 lvim.keys.normal_mode["<C-b>"] = "<cmd>lua require('telescope.builtin').buffers({ sort_lastused = true, ignore_current_buffer = true })<cr>"
 lvim.keys.normal_mode["<C-t>"] = "<cmd>Telescope git_files<cr>"
 lvim.keys.normal_mode["\\"] = "<cmd>Telescope live_grep<cr>"
-lvim.keys.normal_mode["[c"] = "<cmd>lua require 'gitsigns'.next_hunk()<cr>"
-lvim.keys.normal_mode["]c"] = "<cmd>lua require 'gitsigns'.prev_hunk()<cr>"
+lvim.keys.normal_mode["]c"] = "<cmd>lua require 'gitsigns'.next_hunk()<cr>"
+lvim.keys.normal_mode["[c"] = "<cmd>lua require 'gitsigns'.prev_hunk()<cr>"
 lvim.keys.normal_mode["<A-j>"] = "j"
 lvim.keys.normal_mode["<A-k>"] = "k"
 lvim.keys.normal_mode["<leader><leader>"] = "<c-^>"
@@ -54,6 +54,10 @@ lvim.builtin.bufferline.active = false
 -- makes which-key take a long time to show up
 vim.opt.timeoutlen = 5000
 
+-- vim.opt.breakindent
+-- setlocal breakindentopt=min:6,list:-1
+-- let &l:formatlistpat = '^\s*\d\+\.\s\+\|^\s*[-*+>]\s\+\|^\[^\ze[^\]]\+\]:'
+
 lvim.builtin.telescope.defaults.layout_config.width = 0.95
 
 lvim.builtin.nvimtree.active = false
@@ -62,7 +66,7 @@ lvim.builtin.nvimtree.active = false
 -- lvim.builtin.nvimtree.width = 50
 
 -- if you don't want all the parsers change this to a table of the ones you want
-lvim.builtin.treesitter.ensure_installed = { "json", "yaml", "go", "ruby", "tsx", "typescript" }
+lvim.builtin.treesitter.ensure_installed = "maintained"
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 
@@ -123,6 +127,14 @@ lvim.plugins = {
     },
     {"tpope/vim-rhubarb"},
     {"preservim/nerdtree"},
+    {"github/copilot.vim"},
+    {"tpope/vim-eunuch"},
+    {
+        "pwntester/octo.nvim",
+        config = function()
+          require"octo".setup()
+        end,
+    },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
