@@ -3,6 +3,8 @@ git/gitconfig.symlink
 private-env.zsh
 private-env.auto.fish
 ruby/bundle.symlink/cache/
+solargraph/
+solargraph.tar
 vim/vim.symlink/plugged
 vim/vim.symlink/spell
 vim/vim.symlink/undo
