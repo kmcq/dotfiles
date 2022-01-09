@@ -15,19 +15,20 @@
   coi = !"git branch --sort=-committerdate --format \"%(refname:short);%(creatordate:relative);%(committername)\" | column -s \";\" -t | fzf --reverse --nth=1 --preview \"git log --patch --color {1}...{1}~5\" | awk '{print $1}' | xargs git checkout"
   coir = !"git branch -a --sort=-committerdate --format \"%(refname:short);%(creatordate:relative);%(committername)\" | column -s \";\" -t | fzf --reverse --nth=1 --preview \"git log --patch --color {1}...{1}~5\" | awk '{print $1}' | xargs git checkout"
   delete-merged-branches = "!git co master && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+	recent = branch --sort=committerdate --format=\"%(committerdate:relative)%09%(refname:short)\"
   st = status
   staged = diff --staged
 [color]
   diff = auto
   status = auto
   branch = auto
-  ui = auto
+	ui = true
 [core]
   excludesfile = ~/.gitignore
   editor = vim
-  pager = delta
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [interactive]
-    diffFilter = delta --color-only
+	diffFilter = diff-so-fancy --patch
 [difftool]
   prompt = false
 [mergetool]
@@ -57,3 +58,5 @@
     commit-decoration-style = bold yellow ul
     file-style = bold yellow ul
     file-decoration-style = none
+[diff-so-fancy]
+	stripLeadingSymbols = false
