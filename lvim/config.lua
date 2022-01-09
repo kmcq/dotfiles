@@ -24,6 +24,8 @@ lvim.keys.normal_mode["]c"] = "<cmd>lua require 'gitsigns'.next_hunk()<cr>"
 lvim.keys.normal_mode["[c"] = "<cmd>lua require 'gitsigns'.prev_hunk()<cr>"
 lvim.keys.normal_mode["<A-j>"] = "j"
 lvim.keys.normal_mode["<A-k>"] = "k"
+lvim.keys.normal_mode["j"] = "gj"
+lvim.keys.normal_mode["k"] = "gk"
 lvim.keys.normal_mode["<leader><leader>"] = "<c-^>"
 
 -- Just place your caret on a word, hit c* and type, hit <esc> and then hit .
@@ -177,6 +179,7 @@ lvim.plugins = {
     {"tpope/vim-rhubarb"},
     {"preservim/nerdtree"},
     {"github/copilot.vim"},
+    {"junegunn/goyo.vim"},
     {"tpope/vim-eunuch"},
     {
         "pwntester/octo.nvim",
