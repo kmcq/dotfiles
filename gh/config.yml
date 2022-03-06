@@ -32,3 +32,4 @@ aliases:
     approve: pr review --approve
     prengme: pr create -r github/platform-health-engineers -a @me
     preengme: pr edit --add-reviewer github/platform-health-engineers --add-assignee @me
+    dev: '!gh cs ssh -c `gh cs create --status -r $1`'
