@@ -1,12 +1,13 @@
 if has('nvim')
 lua <<EOF
   require'nvim-treesitter.configs'.setup {
-  highlight = {
-    enable = true
-  },
-  indent = {
-    enable = true
-  }
-}
+    ensure_installed = "maintained",
+    highlight = {
+      enable = true
+      },
+    indent = {
+      enable = true
+      }
+    }
 EOF
 endif

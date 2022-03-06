@@ -5,7 +5,6 @@ alias mkdir='mkdir -p'
 alias ls="ls -G"
 alias l='ls'
 alias ll='ls -al'
-alias vim='nvim'
 alias vi='vim'
 alias v='vim'
 
