@@ -1,4 +1,3 @@
--- TODO Things to change
 --[[
 lvim is the global options object
 
@@ -7,10 +6,9 @@ filled in as strings with either
 a global executable or a path to
 an executable
 ]]
--- - K for search current word (use telescope though?)
 
 -- general
-lvim.format_on_save = true
+lvim.format_on_save = false
 lvim.lint_on_save = true
 
 -- keymappings [view all by pressing <leader>Lk]
@@ -20,12 +18,15 @@ lvim.keys.normal_mode["<C-s>"] = "<cmd>w<cr>"
 lvim.keys.normal_mode["<C-b>"] = "<cmd>lua require('telescope.builtin').buffers({ sort_lastused = true, ignore_current_buffer = true })<cr>"
 lvim.keys.normal_mode["<C-t>"] = "<cmd>Telescope git_files<cr>"
 lvim.keys.normal_mode["\\"] = "<cmd>Telescope live_grep<cr>"
+lvim.keys.normal_mode["<leader>k"] = "<cmd>lua require('telescope.builtin').grep_string()<cr>"
 lvim.keys.normal_mode["]c"] = "<cmd>lua require 'gitsigns'.next_hunk()<cr>"
 lvim.keys.normal_mode["[c"] = "<cmd>lua require 'gitsigns'.prev_hunk()<cr>"
 lvim.keys.normal_mode["<A-j>"] = "j"
 lvim.keys.normal_mode["<A-k>"] = "k"
 lvim.keys.normal_mode["j"] = "gj"
 lvim.keys.normal_mode["k"] = "gk"
+lvim.keys.visual_mode["j"] = "gj"
+lvim.keys.visual_mode["k"] = "gk"
 lvim.keys.normal_mode["<leader><leader>"] = "<c-^>"
 
 -- Just place your caret on a word, hit c* and type, hit <esc> and then hit .
@@ -70,6 +71,8 @@ vim.opt.timeoutlen = 5000
 -- let &l:formatlistpat = '^\s*\d\+\.\s\+\|^\s*[-*+>]\s\+\|^\[^\ze[^\]]\+\]:'
 
 lvim.builtin.telescope.defaults.layout_config.width = 0.95
+lvim.builtin.telescope.defaults.layout_strategy = "vertical"
+-- lvim.builtin.telescope.pickers.git_files.theme = "dropdown"
 
 lvim.builtin.nvimtree.active = false
 -- lvim.builtin.nvimtree.side = "left"
