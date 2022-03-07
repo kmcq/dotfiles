@@ -10,9 +10,9 @@ script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 # Install the correct homebrew for each OS type
 if [[ "$(uname -s)" = "Darwin" ]]
 then
-  bash "$script_dir/install-mac.sh"
+  bash "$script_dir/deps/install-mac.sh"
 else
-  bash "$script_dir/install-codespaces.sh"
+  bash "$script_dir/deps/install-codespaces.sh"
 fi
 
 exit 0

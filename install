@@ -54,9 +54,6 @@ setup_gitconfig () {
 link_file () {
   local src=$1 dst=$2
 
-  local overwrite= backup= skip=
-  local action=
-
   if [ -f "$dst" -o -d "$dst" -o -L "$dst" ]
   then
     rm -rf "$dst"
@@ -79,6 +76,7 @@ install_dotfiles () {
 
 setup_gitconfig
 install_dotfiles
+./install-deps.sh
 
 # find the installers and run them iteratively
 for installer in $(find . -maxdepth 2 -name "*install.sh"); do
