@@ -5,13 +5,10 @@ zsh_path=$(which zsh)
 
 [ ! $(grep -q "zsh" "/etc/shells") ] || $zsh_path | sudo tee -a /etc/shells
 
-if [ "$(uname -s)" == "Darwin" ]
+if [[ ! "$SHELL" =~ "zsh" ]]
 then
-  if [[ ! "$SHELL" =~ "zsh" ]]
-  then
-    echo Changing
-    sudo chsh -s $zsh_path $current_user
-  fi
+  echo Changing
+  sudo chsh -s $zsh_path $current_user
 fi
 
 unset current_user zsh_path

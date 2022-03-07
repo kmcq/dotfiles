@@ -1,5 +1,7 @@
 #!/bin/bash
 
+apt-get install -y ripgrep
+
 # nodenv
 curl -fsSL https://raw.githubusercontent.com/nodenv/nodenv-installer/master/bin/nodenv-installer | bash
 
