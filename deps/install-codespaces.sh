@@ -17,4 +17,4 @@ curl -L -o $HOME/.bin/nvim https://github.com/neovim/neovim/releases/download/v0
 chmod a+x $HOME/.bin/nvim
 
 # Install diff-so-fancy
-sudo apt-get install -y diff-so-fancy
+npm i -g diff-so-fancy
