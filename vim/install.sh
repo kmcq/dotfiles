@@ -8,6 +8,6 @@ npm install -g typescript typescript-language-server
 if [[ "$(uname -s)" = "Darwin" ]]
 then
   nvim +PlugInstall +qall
-else
-  ~/.bin/nvim +PlugInstall +qall
+# else
+#   ~/.bin/nvim +PlugInstall +qall
 fi
