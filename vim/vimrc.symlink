@@ -55,6 +55,8 @@ set number            " Enable line numbers
 set scrolloff=5       " Leave 5 lines of buffer when scrolling
 set sidescrolloff=10  " Leave 10 characters of horizontal buffer when scrolling
 
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'ruby', 'json']
+
 "-------------------------------------------------------------------------------
 " Alter Vim's behavior
 "-------------------------------------------------------------------------------
@@ -123,15 +125,6 @@ cnoremap <C-K> <C-U>
 " Remap j and k to act as expected when used on long, wrapped, lines
 nnoremap j gj
 nnoremap k gk
-
-" Use ]d and [d to navigate between errors
-map <silent> [d <Plug>(ale_previous_wrap)
-map <silent> ]d <Plug>(ale_next_wrap)
-
-" Use ]d and [d to navigate between Git hunks
-nmap ]c <Plug>(GitGutterNextHunk)
-nmap [c <Plug>(GitGutterPrevHunk)
-
 
 "-------------------------------------------------------------------------------
 " Custom Shortcuts

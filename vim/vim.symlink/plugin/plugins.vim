@@ -1,61 +1,38 @@
 call plug#begin('~/.vim/plugged')
 
-" Addons
-Plug 'itchyny/lightline.vim'
-Plug 'AndrewRadev/splitjoin.vim'                    " Toggle between multi- and single-line expressions
-Plug 'scrooloose/nerdtree'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-surround'
-
+" Editor
+Plug 'feline-nvim/feline.nvim'
+Plug 'github/copilot.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-
+Plug 'junegunn/goyo.vim'
 Plug 'lewis6991/gitsigns.nvim'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'projekt0n/github-nvim-theme'
+Plug 'scrooloose/nerdtree'
 
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-" Plug 'HerringtonDarkholme/yats.vim', { 'for': ['typescript']}
+" Commands
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'junegunn/gv.vim'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-rhubarb' | Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+
+" Language Support
 Plug 'fatih/vim-go'
 Plug 'jparise/vim-graphql'
-" Plug 'sheerun/vim-polyglot'
-" Plug 'tpope/vim-endwise'
+Plug 'lukas-reineke/lsp-format.nvim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-refactor'
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
-Plug 'w0rp/ale'
-Plug 'airblade/vim-gitgutter'
 
-Plug 'tpope/vim-markdown'
-
-" Tmux integration
-Plug 'christoomey/vim-tmux-navigator'
-
-" File system navigation
-Plug 'tpope/vim-eunuch'
-
-" Syntax errors
-Plug 'ntpeters/vim-better-whitespace'
-
-" Markdown support
-Plug 'junegunn/goyo.vim'
-
-" Git support
-Plug 'tpope/vim-rhubarb' | Plug 'tpope/vim-fugitive'
-Plug 'junegunn/gv.vim'
-
-" ctags
-Plug 'ludovicchabant/vim-gutentags'
-
-" Testing
-Plug 'janko-m/vim-test'
-Plug 'bswinnerton/vim-test-github'
-
-Plug 'chrisbra/Colorizer'
-Plug 'projekt0n/github-nvim-theme'
-
-" Gist
-Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim'
-
-Plug 'github/copilot.vim'
+" Misc
+Plug 'christoomey/vim-tmux-navigator' " Tmux integration
 
 call plug#end()
