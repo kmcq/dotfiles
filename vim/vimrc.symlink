@@ -23,6 +23,8 @@ set completeopt=menuone,noselect
 set diffopt+=vertical                 " Always use vertical diffs
 set expandtab shiftwidth=2 tabstop=2  " Two spaces for tabs everywhere
 set gdefault
+set foldmethod=indent
+set foldlevelstart=99
 set ignorecase smartcase              " Search queries intelligently set case
 set incsearch                         " Show search results as you type
 set infercase                         " Ignore case on insert completion
@@ -164,6 +166,9 @@ nnoremap c* *Ncgn
 nnoremap c# #NcgN
 nnoremap d* *Ndgn
 nnoremap d# #NdgN
+
+" Toggle fold at current location
+nnoremap <Tab> za
 
 "-------------------------------------------------------------------------------
 " Neovim setting
