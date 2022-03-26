@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apt-get install -y ripgrep
+sudo apt-get install -y ripgrep tmux
 
 # nodenv
 curl -fsSL https://raw.githubusercontent.com/nodenv/nodenv-installer/master/bin/nodenv-installer | bash
@@ -20,6 +20,3 @@ chmod a+x $HOME/.bin/nvim
 
 # Install diff-so-fancy
 npm i -g diff-so-fancy
-
-# Install tmux
-sudo apt-get install -y tmux
