@@ -2,11 +2,10 @@
 
 sudo apt-get install -y ripgrep tmux
 
-# nodenv
-curl -fsSL https://raw.githubusercontent.com/nodenv/nodenv-installer/master/bin/nodenv-installer | bash
-
-# rbenv
-curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash
+# asdf
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.9.0
+$HOME/.asdf/asdf.sh plugin-list | grep nodejs || $HOME/.asdf/asdf.sh plugin-add nodejs
+$HOME/.asdf/asdf.sh plugin-list | grep ruby || $HOME/.asdf/asdf.sh plugin-add ruby
 
 # fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf

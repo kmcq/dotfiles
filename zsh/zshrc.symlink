@@ -50,6 +50,8 @@ source $ZSH/fzf/fzf.zsh
 export DOCKER_TLS_VERIFY=
 export DOCKER_HOST=
 
-eval "$(rbenv init -)"
-eval "$(nodenv init -)"
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+if [ "$CODESPACES" == "true" ]; then
+  . $HOME/.asdf/asdf.sh
+else
+  . /usr/local/opt/asdf/libexec/asdf.sh
+fi

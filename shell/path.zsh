@@ -3,11 +3,6 @@ case "$(uname -s)" in
     export PATH="$HOME/.local/bin:$PATH"
     export PATH="/usr/local/bin:$PATH"
     ;;
-
-  Linux)
-    export PATH="$HOME/.nodenv/bin:$PATH"
-    export PATH="$HOME/.rbenv/bin:$PATH"
-    ;;
 esac
 
 export PATH="$ZSH/bin:$PATH"
@@ -16,4 +11,3 @@ export PATH="$HOME/.bin:/usr/local/sbin:$PATH"
 export PATH="$PATH:$HOME/.yarn/bin"
 export PATH="$PATH:/usr/local/opt/mysql@5.7/bin"
 export PATH="$HOME/go/bin:$PATH"
-export PATH="$HOME/.nodenv/versions/$(nodenv global)/lib/node_modules:$PATH"
