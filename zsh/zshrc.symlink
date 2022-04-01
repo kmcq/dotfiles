@@ -50,7 +50,7 @@ source $ZSH/fzf/fzf.zsh
 export DOCKER_TLS_VERIFY=
 export DOCKER_HOST=
 
-if [ "$CODESPACES" == "true" ]; then
+if [[ "$CODESPACES" == "true" ]]; then
   . $HOME/.asdf/asdf.sh
 else
   . /usr/local/opt/asdf/libexec/asdf.sh
