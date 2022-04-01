@@ -11,6 +11,7 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'nvim-lua/plenary.nvim'
+Plug 'ojroques/vim-oscyank'
 Plug 'projekt0n/github-nvim-theme'
 Plug 'scrooloose/nerdtree'
 
