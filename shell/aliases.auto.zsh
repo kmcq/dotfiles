@@ -6,7 +6,7 @@ alias ls="ls -G"
 alias l='ls'
 alias ll='ls -al'
 alias vi='vim'
-alias v='vim'
+alias v='nvim'
 
 ### SHORTCUTS ###
 alias src='cd ~/src/'
