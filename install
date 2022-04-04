@@ -43,6 +43,8 @@ setup_gitconfig () {
     else
       sed -i "s/GIT_CREDENTIAL_HELPER/cache/g" git/gitconfig.symlink
       sed -i "s/gpgsign = true/gpgsign = false/" git/gitconfig.symlink
+      echo "[diff]" >> git/gitconfig.symlink
+      echo "  external = difft" >> git/gitconfig.symlink
     fi
 
 

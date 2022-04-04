@@ -25,12 +25,8 @@
 	ui = true
 [core]
   excludesfile = ~/.gitignore
-  editor = vim
-	pager = diff-so-fancy | less --tabs=4 -RFX
-[interactive]
-	diffFilter = diff-so-fancy --patch
-[difftool]
-  prompt = false
+  editor = v
+	difftool = true
 [mergetool]
   prompt = false
 [push]
@@ -50,13 +46,9 @@
   protocol = https
 [pull]
 	rebase = true
-[delta]
-    features = line-numbers decorations
-    whitespace-error-style = 22 reverse
-    minus-style = red bold
-[delta "decorations"]
-    commit-decoration-style = bold yellow ul
-    file-style = bold yellow ul
-    file-decoration-style = none
-[diff-so-fancy]
-	stripLeadingSymbols = false
+[difftool]
+  prompt = false
+[difftool "difftastic"]
+  cmd = difft "$LOCAL" "$REMOTE"
+[diff]
+	external = difft
