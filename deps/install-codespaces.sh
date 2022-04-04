@@ -16,6 +16,3 @@ sudo apt --reinstall -y install fuse
 mkdir -p $HOME/.bin
 curl -L -o $HOME/.bin/nvim https://github.com/neovim/neovim/releases/download/v0.6.1/nvim.appimage
 chmod a+x $HOME/.bin/nvim
-
-# Install diff-so-fancy
-npm i -g diff-so-fancy

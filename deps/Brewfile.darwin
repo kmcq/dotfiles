@@ -1,7 +1,6 @@
 tap 'homebrew/cask-versions'
 
 brew 'coreutils'
-brew 'diff-so-fancy'
 brew 'gnu-tar'
 brew 'gnupg'
 brew 'iproute2mac'
