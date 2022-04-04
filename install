@@ -40,11 +40,10 @@ setup_gitconfig () {
       read -e gpg_signing_key
       sed -e "s/GPG_SIGNING_KEY/$gpg_signing_key/g" git/gitconfig.symlink > git/gitconfig.symlink
       sed -e "s/GIT_CREDENTIAL_HELPER/osxkeychain/g" git/gitconfig.symlink > git/gitconfig.symlink
+      git config --global diff.external difft
     else
       sed -i "s/GIT_CREDENTIAL_HELPER/cache/g" git/gitconfig.symlink
       sed -i "s/gpgsign = true/gpgsign = false/" git/gitconfig.symlink
-      echo "[diff]" >> git/gitconfig.symlink
-      echo "  external = difft" >> git/gitconfig.symlink
     fi
 
 
