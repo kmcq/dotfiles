@@ -50,8 +50,11 @@ source $ZSH/fzf/fzf.zsh
 export DOCKER_TLS_VERIFY=
 export DOCKER_HOST=
 
+export GEM_PATH="./vendor/cache:$GEM_PATH"
+
 if [[ "$CODESPACES" == "true" ]]; then
   . $HOME/.asdf/asdf.sh
 else
+  export JAVA_HOME=$(/usr/libexec/java_home)
   . /usr/local/opt/asdf/libexec/asdf.sh
 fi
