@@ -33,3 +33,5 @@ aliases:
     prengme: pr create -r github/platform-health-engineers -a @me
     preengme: pr edit --add-reviewer github/platform-health-engineers --add-assignee @me
     dev: '!gh cs ssh -c `gh cs create --status -r $1`'
+    needreview: search prs --author @me --state open --review none
+    needmyreview: search prs --review-requested=@me --state=open
