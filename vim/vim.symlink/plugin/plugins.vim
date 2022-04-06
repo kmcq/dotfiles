@@ -36,5 +36,8 @@ Plug 'vim-ruby/vim-ruby'
 
 " Misc
 Plug 'christoomey/vim-tmux-navigator' " Tmux integration
+Plug 'pwntester/octo.nvim'
+Plug 'nvim-telescope/telescope.nvim' " required by octo.nvim
+Plug 'kyazdani42/nvim-web-devicons' " required by octo.nvim
 
 call plug#end()

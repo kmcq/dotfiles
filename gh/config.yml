@@ -35,3 +35,5 @@ aliases:
     dev: '!gh cs ssh -c `gh cs create --status -r $1`'
     needreview: search prs --author @me --state open --review none
     needmyreview: search prs --review-requested=@me --state=open
+    vimpr: "!nvim +\"Octo `gh pr view --json url -q '.url'`\""
+    vim: "!nvim +\"Octo $1\""
