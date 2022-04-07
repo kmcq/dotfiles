@@ -29,4 +29,4 @@ aliases:
     needmyreview: search prs --review-requested=@me --state=open
     url: "!gh $([[ $@ == *\"pull\"* ]] && echo pr || echo issue) view $@ --json url -q '.url'"
     vimpr: "!nvim +\"Octo `gh pr view --json url -q '.url'`\""
-    vim: "!nvim +\"Octo `gh url $1`\""
+    vim: "!nvim +\"Octo `gh url $@`\""
