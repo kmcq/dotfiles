@@ -30,7 +30,7 @@
 [mergetool]
   prompt = false
 [push]
-  default = upstream
+	default = current
 [fetch]
   prune = true
 [rebase]
@@ -52,3 +52,5 @@
   cmd = difft "$LOCAL" "$REMOTE"
 [diff]
 	external = difft
+[remote]
+	pushDefault = origin
