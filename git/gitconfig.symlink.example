@@ -50,7 +50,7 @@
   prompt = false
 [difftool "difftastic"]
   cmd = difft "$LOCAL" "$REMOTE"
-[diff]
-	external = difft
 [remote]
 	pushDefault = origin
+[init]
+	defaultBranch = main
