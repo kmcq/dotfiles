@@ -1,6 +1,16 @@
 # shortcut to this dotfiles path is $ZSH
 export ZSH="$(dirname `readlink ~/.zshrc`)/../"
 
+if [[ "$CODESPACES" == "true" ]]; then
+  . $HOME/.asdf/asdf.sh
+else
+  # Load up brew
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+  export JAVA_HOME=$(/usr/libexec/java_home)
+  # Load up asdf
+  . /opt/homebrew/opt/asdf/libexec/asdf.sh
+fi
+
 # all of our zsh files
 typeset -U config_files
 config_files=($ZSH/**/*.zsh)
@@ -51,10 +61,3 @@ export DOCKER_TLS_VERIFY=
 export DOCKER_HOST=
 
 export GEM_PATH="./vendor/cache:$GEM_PATH"
-
-if [[ "$CODESPACES" == "true" ]]; then
-  . $HOME/.asdf/asdf.sh
-else
-  export JAVA_HOME=$(/usr/libexec/java_home)
-  . /usr/local/opt/asdf/libexec/asdf.sh
-fi
