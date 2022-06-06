@@ -15,6 +15,7 @@ cask "adoptopenjdk/openjdk/adoptopenjdk8" unless system "/usr/libexec/java_home 
 cask 'alacritty'
 cask 'docker'
 cask 'graphiql'
+cask 'hammerspoon'
 cask 'hex-fiend'
 cask 'rectangle'
 cask 'viscosity'
