@@ -1,12 +1,16 @@
 tap 'homebrew/cask-versions'
+tap 'adoptopenjdk/openjdk'
 
 brew 'coreutils'
+brew 'git-delta'
 brew 'gnu-tar'
 brew 'gnupg'
 brew 'iproute2mac'
 brew 'pinentry-mac'
 brew 'reattach-to-user-namespace'
 brew 'switchaudio-osx'
+
+cask "adoptopenjdk/openjdk/adoptopenjdk8" unless system "/usr/libexec/java_home --failfast --version 1.8+ &>/dev/null"
 
 cask 'alacritty'
 cask 'docker'
