@@ -38,6 +38,7 @@ do
 done
 
 # initialize autocomplete here, otherwise functions won't be loaded
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 autoload -U compinit
 compinit
 

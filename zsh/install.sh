@@ -26,3 +26,8 @@ if [[ ! -d ~/.zsh/zsh-syntax-highlighting ]]
 then
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
 fi
+
+if type brew &>/dev/null
+then
+  gh completion -s zsh > $(brew --prefix)/share/zsh/site-functions/_gh
+fi
