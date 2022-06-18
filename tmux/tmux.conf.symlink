@@ -20,6 +20,12 @@ bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
 # switch between last pane or last window if no panes
 bind-key C-space if-shell 'test $(tmux list-panes | wc -l) -gt 1' 'last-pane' 'last-window'
 
+# easier switching between panes
+bind-key 'C-h' 'select-pane -L'
+bind-key 'C-j' 'select-pane -D'
+bind-key 'C-k' 'select-pane -U'
+bind-key 'C-l' 'select-pane -R'
+
 # Mouse scroll automatically starts copy mode and scrolls
 set-option -g mouse on
 
