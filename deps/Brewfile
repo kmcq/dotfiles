@@ -1,3 +1,4 @@
+brew 'asdf'
 brew 'ag'
 brew 'difftastic'
 brew 'fzf'
