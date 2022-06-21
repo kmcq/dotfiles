@@ -5,10 +5,10 @@ if [[ "$CODESPACES" == "true" ]]; then
   . $HOME/.asdf/asdf.sh
 else
   # Load up brew
-  eval "$(/opt/homebrew/bin/brew shellenv)"
+  eval "$($(brew --prefix)/bin/brew shellenv)"
   export JAVA_HOME=$(/usr/libexec/java_home)
   # Load up asdf
-  . /opt/homebrew/opt/asdf/libexec/asdf.sh
+  . $(brew --prefix)/opt/asdf/libexec/asdf.sh
 fi
 
 # all of our zsh files
