@@ -18,6 +18,11 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     }
 )
 
+-- Add a border to hovers to make them easier to read.
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+  border = "rounded",
+})
+
 local ts_utils = require('nvim-lsp-ts-utils')
 ts_utils.setup({})
 
