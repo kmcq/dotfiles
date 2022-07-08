@@ -30,3 +30,4 @@ aliases:
     url: "!gh $([[ $@ == *\"pull\"* ]] && echo pr || echo issue) view $@ --json url -q '.url'"
     vimpr: "!nvim +\"Octo `gh pr view --json url -q '.url'`\""
     vim: "!nvim +\"Octo `gh url $@`\""
+    important: search issues --repo github/platform-health,github/spamurai-next,github/hamzo --label impact:large --state open --no-assignee --json title,url -t '{{range .}}{{tablerow .title .url}}{{end}}'
