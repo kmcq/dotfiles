@@ -1,13 +1,12 @@
 .DS_Store
-git/gitconfig.symlink
 private-env.zsh
 private-env.auto.fish
 dot_bundle/cache/
 solargraph/
 solargraph.tar
-vim/vim.symlink/plugged
-vim/vim.symlink/spell
-vim/vim.symlink/undo
+dot_vim/plugged
+dot_vim/spell
+dot_vim/undo
 tags*
 
 fish/fishd.*
