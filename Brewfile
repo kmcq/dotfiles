@@ -1,14 +1,26 @@
 tap 'homebrew/cask-versions'
 tap 'adoptopenjdk/openjdk'
 
+brew 'ag'
+brew 'asdf'
+brew 'chezmoi'
 brew 'coreutils'
+brew 'difftastic'
+brew 'fzf'
+brew 'gh'
+brew 'git'
 brew 'git-delta'
 brew 'gnu-tar'
 brew 'gnupg'
+brew 'go'
 brew 'iproute2mac'
+brew 'jq'
+brew 'neovim'
 brew 'pinentry-mac'
 brew 'reattach-to-user-namespace'
+brew 'ripgrep'
 brew 'switchaudio-osx'
+brew 'tmux'
 
 cask "adoptopenjdk/openjdk/adoptopenjdk8" unless system "/usr/libexec/java_home --failfast --version 1.8+ &>/dev/null"
 

@@ -1,0 +1,36 @@
+# Set up PATH
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
+export PATH="./bin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="$HOME/.bin:/usr/local/sbin:$PATH"
+export PATH="$PATH:$HOME/.yarn/bin"
+export PATH="$PATH:/usr/local/opt/mysql@5.7/bin"
+export PATH="$HOME/go/bin:$PATH"
+
+{{- if (eq .chezmoi.os "darwin") -}}
+  # Load brew
+  eval "$($(brew --prefix)/bin/brew shellenv)"
+
+  # Load asdf
+  . $(brew --prefix)/opt/asdf/libexec/asdf.sh
+
+  export JAVA_HOME=$(/usr/libexec/java_home)
+{{ else }}
+  # Load asdf
+  . $HOME/.asdf/asdf.sh
+{{ end -}}
+
+source "$HOME/.zsh/config.zsh"
+source "$HOME/.zsh/prompt.zsh"
+
+# initialize autocomplete here, otherwise functions won't be loaded
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+autoload -U compinit
+compinit
+source "$HOME/.zsh/completion.zsh"
+
+export DOCKER_TLS_VERIFY=
+export DOCKER_HOST=
+
+export GEM_PATH="./vendor/cache:$GEM_PATH"

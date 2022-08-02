@@ -1,0 +1,25 @@
+#!/bin/bash
+
+echo "Running asdf install..."
+asdf install
+
+echo "Setting up nvim..."
+npm install -g typescript typescript-language-server
+nvim --headless -c "PlugInstall | qa"
+
+echo "Setting up golang..."
+mkdir -p $HOME/go/bin
+
+echo "Setting up shell fonts..."
+tic -x shell/xterm-256color-italic.terminfo
+tic -x shell/tmux-256color-italic.terminfo
+
+{{- if (eq .chezmoi.os "darwin") -}}
+
+if [ ! -d ~/.hammerspoon/Spoons/ControlEscape.spoon ] ; then
+  git clone -q https://github.com/jasonrudolph/ControlEscape.spoon.git ~/.hammerspoon/Spoons/ControlEscape.spoon
+  cd ~/.hammerspoon/Spoons/ControlEscape.spoon
+  script/setup
+fi
+
+{{ end -}}

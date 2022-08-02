@@ -2,7 +2,7 @@
 git/gitconfig.symlink
 private-env.zsh
 private-env.auto.fish
-ruby/bundle.symlink/cache/
+dot_bundle/cache/
 solargraph/
 solargraph.tar
 vim/vim.symlink/plugged
