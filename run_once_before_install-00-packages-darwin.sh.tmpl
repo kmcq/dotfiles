@@ -43,6 +43,6 @@ $(brew --prefix)/bin/asdf plugin-list | grep ruby || $(brew --prefix)/bin/asdf p
 $(brew --prefix)/bin/asdf plugin-list | grep chezmoi || $(brew --prefix)/bin/asdf plugin-add chezmoi
 
 echo "Installing fzf completions..."
-$(brew --prefix)/opt/fzf/install
+$(brew --prefix)/opt/fzf/install --key-bindings --completion --no-update-rc
 
 {{ end -}}
