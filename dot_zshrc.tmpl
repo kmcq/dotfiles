@@ -38,3 +38,51 @@ export DOCKER_TLS_VERIFY=
 export DOCKER_HOST=
 
 export GEM_PATH="./vendor/cache:$GEM_PATH"
+
+# Aliases
+
+### UNIX ###
+alias ln='ln -v'
+alias mkdir='mkdir -p'
+alias ls="ls -G"
+alias l='ls'
+alias ll='ls -al'
+alias vi='vim'
+alias v='nvim'
+
+### DEV TOOLS ###
+alias now="vercel"
+
+### GIT ###
+alias g="git"
+alias gb="git recent"
+alias gp="git pull"
+alias gs="git status"
+alias gpr="git pull --rebase"
+alias gpu="git push -u"
+alias gpuf="git push -f"
+alias gca="git commit --amend"
+alias gcm="git commit -m"
+alias gsave="git stash save -a"
+alias gbackone="git reset HEAD~ && git status"
+alias gll="git log --name-status"
+alias gd="git diff"
+alias gdc="git diff --cached"
+alias glnh="git log --pretty=format:'%Cred%h%Creset -%C(bold yellow)<%an> %C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --date=relative --abbrev-commit --graph --no-merges"
+alias gl="echo && git branch && echo && glnh -10"
+
+### EXTRAS ###
+
+# ctags fix. OSX ctags is bad - this forces use of brew's ctags
+if [[ "$(uname -s)" == "Darwin" ]]
+then
+  alias ctags="`brew --prefix`/bin/ctags"
+fi
+
+# Pretty print the path
+alias path='echo $PATH | tr -s ":" "\n"'
+
+### GITHUB ###
+
+alias gh-presto='presto --server presto-coordinator.service.github.net:8080'
+alias gh-presto-export='gh-presto --output-format CSV_HEADER -f'
