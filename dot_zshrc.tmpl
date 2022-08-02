@@ -54,7 +54,6 @@ alias v='nvim'
 
 ### DEV TOOLS ###
 alias now="vercel"
-alias tl='tmux ls'
 
 ### GIT ###
 alias g="git"
@@ -73,6 +72,13 @@ alias gd="git diff"
 alias gdc="git diff --cached"
 alias glnh="git log --pretty=format:'%Cred%h%Creset -%C(bold yellow)<%an> %C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --date=relative --abbrev-commit --graph --no-merges"
 alias gl="echo && git branch && echo && glnh -10"
+
+### TMUX ###
+alias tn='tmux new -s'
+alias ta='tmux attach -t'
+alias td='tmux detach'
+alias tl='tmux ls'
+# alias tk='tmux kill-session -t'
 
 ### EXTRAS ###
 
