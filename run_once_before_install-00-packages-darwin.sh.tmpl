@@ -27,7 +27,15 @@ fi
 # Install dependencies defined in Brewfile
 brew tap Homebrew/bundle
 brew update
-brew bundle
+brew bundle --no-lock --file=/dev/stdin <<EOF
+brew 'asdf'
+brew 'fzf'
+brew 'gh'
+brew 'git'
+brew 'gnupg'
+brew 'neovim'
+brew 'pinentry-mac'
+EOF
 
 echo "Installing asdf plugins..."
 $(brew --prefix)/bin/asdf plugin-list | grep nodejs || $(brew --prefix)/bin/asdf plugin-add nodejs

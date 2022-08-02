@@ -16,6 +16,8 @@ tic -x shell/tmux-256color-italic.terminfo
 
 {{- if (eq .chezmoi.os "darwin") -}}
 
+brew bundle
+
 if [ ! -d ~/.hammerspoon/Spoons/ControlEscape.spoon ] ; then
   git clone -q https://github.com/jasonrudolph/ControlEscape.spoon.git ~/.hammerspoon/Spoons/ControlEscape.spoon
   cd ~/.hammerspoon/Spoons/ControlEscape.spoon
