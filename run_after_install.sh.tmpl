@@ -14,8 +14,6 @@ echo "Setting up shell fonts..."
 tic -x shell/xterm-256color-italic.terminfo
 tic -x shell/tmux-256color-italic.terminfo
 
-chmod +x ~/bin/*
-
 {{- if (eq .chezmoi.os "darwin") -}}
 
 brew bundle
