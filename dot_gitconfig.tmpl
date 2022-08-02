@@ -1,11 +1,13 @@
 [user]
   name = Keith McHugh
   email = kmcq@github.com
-  signingkey = GPG_SIGNING_KEY
+{{ if (eq .chezmoi.os "darwin") }}
+	signingkey = 8B932C1DA9E5B58C
+{{ end }}
 [github]
   user = kmcq
 [credential]
-  helper = GIT_CREDENTIAL_HELPER
+	helper = {{ if (eq .chezmoi.os "darwin") }} osxkeychain {{ else }} cache {{ end }}
 [alias]
   br = !git checkout $(git branch | cut -c 3- | awk '{print $1}' | fzf +m --preview 'git log --color=always {}')
   p = add -p
@@ -55,3 +57,7 @@
 	pushDefault = origin
 [init]
 	defaultBranch = main
+{{ if (eq .chezmoi.os "darwin") }}
+[diff]
+	external = difft
+{{ end }}
