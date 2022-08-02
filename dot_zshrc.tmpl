@@ -9,16 +9,20 @@ export PATH="$PATH:/usr/local/opt/mysql@5.7/bin"
 export PATH="$HOME/go/bin:$PATH"
 
 {{- if (eq .chezmoi.os "darwin") -}}
-  # Load brew
-  eval "$($(brew --prefix)/bin/brew shellenv)"
 
-  # Load asdf
-  . $(brew --prefix)/opt/asdf/libexec/asdf.sh
+# Load brew
+eval "$($(brew --prefix)/bin/brew shellenv)"
 
-  export JAVA_HOME=$(/usr/libexec/java_home)
+# Load asdf
+. $(brew --prefix)/opt/asdf/libexec/asdf.sh
+
+export JAVA_HOME=$(/usr/libexec/java_home)
+
 {{ else }}
-  # Load asdf
-  . $HOME/.asdf/asdf.sh
+
+# Load asdf
+. $HOME/.asdf/asdf.sh
+
 {{ end -}}
 
 source "$HOME/.zsh/config.zsh"
