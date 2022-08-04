@@ -5,7 +5,7 @@ prompt: enabled
 pager: delta -s
 
 aliases:
-    co: '!id="$(gh pr list -L100 | fzf | cut -f1)"; [ -n "$id" ] && gh pr checkout "$id"'
+    co: '!id="$(gh pr list -S "sort:updated-asc" -L100 | fzf | cut -f1)"; [ -n "$id" ] && gh pr checkout "$id"'
     review: '!id="$(gh pr list -L100 | fzf | cut -f1)"; [ -n "$id" ] && gh pr diff "$id"'
     oncall: issue list -R github/platform-health -S eng -l on-call -L1 --json url -q '.[].url'
     phsync: "issue list -R github/platform-health -l \"sync \U0001F504\" -L1 --json url -q '.[].url'"
