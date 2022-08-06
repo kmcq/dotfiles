@@ -7,10 +7,11 @@
 [github]
   user = kmcq
 [credential]
-	helper = {{ if (eq .chezmoi.os "darwin") }} osxkeychain {{ else }} cache {{ end }}
+	helper = {{ if (eq .chezmoi.os "darwin") }} osxkeychain {{- else }} cache {{- end }}
 [alias]
   br = !git checkout $(git branch | cut -c 3- | awk '{print $1}' | fzf +m --preview 'git log --color=always {}')
   p = add -p
+  cb = checkout -b
   co = checkout
   ci = commit
   cp = cherry-pick
