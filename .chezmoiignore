@@ -3,3 +3,10 @@ VSCode
 install.sh
 setup-gpg-key.sh
 Switch Audio.alfredworkflow
+dot_bundle/cache/
+solargraph/
+solargraph.tar
+dot_vim/plugged
+dot_vim/spell
+dot_vim/undo
+.gitignore
