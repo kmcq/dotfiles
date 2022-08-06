@@ -15,14 +15,16 @@ mkdir -p $HOME/go/bin
 # tic -x shell/xterm-256color-italic.terminfo
 # tic -x shell/tmux-256color-italic.terminfo
 
-{{- if (eq .chezmoi.os "darwin") -}}
+{{if (eq .chezmoi.os "darwin")}}
 
+echo "Install packages from homebrew..."
 brew bundle
 
 if [ ! -d ~/.hammerspoon/Spoons/ControlEscape.spoon ] ; then
+  echo "Setting up hammerspoon..."
   git clone -q https://github.com/jasonrudolph/ControlEscape.spoon.git ~/.hammerspoon/Spoons/ControlEscape.spoon
   cd ~/.hammerspoon/Spoons/ControlEscape.spoon
   script/setup
 fi
 
-{{ end -}}
+{{ end }}
