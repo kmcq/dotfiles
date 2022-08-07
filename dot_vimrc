@@ -13,84 +13,16 @@ source ~/.vim/plugin/plugins.vim
 
 syntax on
 
-let mapleader=' '                     " Leader - override the default \
-
-set autoread                          " Auto reload changed files
-set autowrite                         " :write before running commands
-set backspace=indent,eol,start        " http://vi.stackexchange.com/a/2163
-set cmdheight=2
-set completeopt=menuone,noselect
-set diffopt+=vertical                 " Always use vertical diffs
-set expandtab shiftwidth=2 tabstop=2  " Two spaces for tabs everywhere
-set gdefault
-set foldmethod=indent
-set foldlevelstart=99
-set ignorecase smartcase              " Search queries intelligently set case
-set incsearch                         " Show search results as you type
-set infercase                         " Ignore case on insert completion
-set laststatus=2                      " Show status line on startup
-set lazyredraw                        " Reduce the redraw frequency
-set matchpairs+=<:>                   " Also match angle brackets
-set nobackup nowritebackup noswapfile " Turn off backup files
-set noerrorbells novisualbell         " Turn off visual and audible bells
-set nohlsearch                        " Don't highlight search terms
-set showcmd                           " Show size of visual selection
-set showfulltag                       " Show extra information when using tags in insert mode
-set splitbelow
-set splitright
-set timeoutlen=1000 ttimeoutlen=0     " Remove timeout when hitting escape
-set ttyfast                           " Send more characters in fast terminals
-set wildmenu                          " Tab autocomplete in command mode
-
-" Ignored files/directories from autocomplete (and CtrlP)
-set wildignore+=*/tmp/*
-set wildignore+=*.so
-set wildignore+=*.zip
-set wildignore+=*/vendor/bundle/*
-set wildignore+=*/node_modules/
-
 "-------------------------------------------------------------------------------
 " Interface
 "-------------------------------------------------------------------------------
 
-set number            " Enable line numbers
-set scrolloff=5       " Leave 5 lines of buffer when scrolling
-set sidescrolloff=10  " Leave 10 characters of horizontal buffer when scrolling
 
-let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'ruby', 'json']
-
-augroup setSpelling
-  autocmd!
-
-  autocmd FileType gitcommit setlocal spell spelllang=en_us
-  autocmd FileType markdown setlocal spell spelllang=en_us
-augroup END
 
 "-------------------------------------------------------------------------------
 " Alter Vim's behavior
 "-------------------------------------------------------------------------------
 
-" Use system clipboard
-set clipboard=unnamed
-
-" Persistent undo history
-if exists("+undofile")
-  if has('nvim')
-    if isdirectory($HOME . '/.nvim-undo') == 0
-      :silent !mkdir -p ~/.nvim-undo > /dev/null 2>&1
-    endif
-
-    set undofile
-    set undodir=~/.nvim-undo/
-  else
-    if isdirectory($HOME . '/.vim-undo') == 0
-      :silent !mkdir -p ~/.vim-undo > /dev/null 2>&1
-    endif
-
-    set undofile
-    set undodir=~/.vim-undo/
-  endif
-endif
 
 " Don't copy the contents of an overwritten selection.
 vnoremap p "_dP
