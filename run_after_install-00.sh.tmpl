@@ -5,7 +5,7 @@ asdf install
 asdf reshim
 
 echo "Setting up nvim..."
-npm install -g typescript typescript-language-server
+npm install --location=global typescript typescript-language-server
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 echo "Setting up golang..."
