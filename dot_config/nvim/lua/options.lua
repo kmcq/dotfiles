@@ -14,6 +14,8 @@ local options = {
   undofile = true,
   undodir = undodir,
 
+  termguicolors = true,
+
   -- http://vi.stackexchange.com/a/2163
   backspace = "indent,eol,start",
   completeopt = "menuone,noselect",
@@ -58,6 +60,8 @@ local options = {
 
   wildmenu = true, -- Tab autocomplete in command mode
 }
+
+vim.opt.runtimepath = vim.opt.runtimepath + vim.fn.expand("~/.vim") + vim.fn.expand("~/.vim/after")
 
 for key, val in pairs(options) do
   vim.o[key] = val

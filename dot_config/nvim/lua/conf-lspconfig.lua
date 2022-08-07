@@ -1,6 +1,3 @@
-if has('nvim')
-lua <<EOF
-
 require("lsp-format").setup {}
 
 -- Disable inline diagnostics.
@@ -62,6 +59,3 @@ for _, lsp in pairs(servers) do
     }
   }
 end
-EOF
-
-endif

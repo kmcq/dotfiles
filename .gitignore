@@ -4,9 +4,6 @@ private-env.auto.fish
 dot_bundle/cache/
 solargraph/
 solargraph.tar
-dot_vim/plugged
-dot_vim/spell
-dot_vim/undo
 tags*
 
 fish/fishd.*

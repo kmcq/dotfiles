@@ -1,5 +1,3 @@
-if has('nvim')
-lua <<EOF
 require('gitsigns').setup{
   on_attach = function(bufnr)
     local function map(mode, l, r, opts)
@@ -33,5 +31,3 @@ require('gitsigns').setup{
     map('x', 'ih', ':<C-U>Gitsigns select_hunk<CR>')
   end
 }
-EOF
-endif
