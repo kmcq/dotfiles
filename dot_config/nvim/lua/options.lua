@@ -1,7 +1,7 @@
 -- Leader - override the default
 vim.g.mapleader = ' '
 
-local undodir = "~/.nvim-undo/"
+local undodir = vim.env.HOME .. "/.nvim-undo/"
 
 local options = {
   clipboard = "unnamed", -- Use system clipboard
