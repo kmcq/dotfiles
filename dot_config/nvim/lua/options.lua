@@ -7,6 +7,7 @@ local options = {
   clipboard = "unnamed", -- Use system clipboard
 
   number = true, -- Enable line numbers
+  swapfile = false,
 
   autoread = true, -- Auto reload changed files
   autowrite = true, -- :write before running commands
