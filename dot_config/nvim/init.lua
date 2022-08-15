@@ -39,7 +39,6 @@ local plugins = function(use)
       require("feline").setup()
     end,
   })
-  use("github/copilot.vim")
   use({
     "junegunn/fzf",
     run = "fzf#install()",
@@ -142,6 +141,26 @@ local plugins = function(use)
   })
   use("tpope/vim-rails")
   use("vim-ruby/vim-ruby")
+
+  -- Autocomplete + snippets
+  -- use("github/copilot.vim") let's try nvim-cmp instead
+  use({
+    "hrsh7th/nvim-cmp",
+    requires = {
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-nvim-lsp-signature-help",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-cmdline",
+      "onsails/lspkind-nvim",
+      "L3MON4D3/LuaSnip",
+      "saadparwaiz1/cmp_luasnip",
+      "rafamadriz/friendly-snippets",
+    },
+    config = function()
+      require("conf-cmp")
+    end,
+  })
 
   -- Misc
   use("christoomey/vim-tmux-navigator")
