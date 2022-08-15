@@ -133,7 +133,8 @@ local plugins = function(use)
       "jose-elias-alvarez/null-ls.nvim",
       "jose-elias-alvarez/nvim-lsp-ts-utils",
       "lukas-reineke/lsp-format.nvim",
-      "williamboman/nvim-lsp-installer",
+      "williamboman/mason-lspconfig.nvim",
+      "williamboman/mason.nvim",
     },
     config = function()
       require("conf-lspconfig")

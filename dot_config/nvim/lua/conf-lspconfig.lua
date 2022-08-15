@@ -1,4 +1,16 @@
-require("lsp-format").setup {}
+require("lsp-format").setup()
+require("mason").setup()
+require("trouble").setup({})
+
+local null_ls = require("null-ls")
+null_ls.setup({
+  sources = {
+    null_ls.builtins.diagnostics.eslint,
+    null_ls.builtins.completion.spell,
+    null_ls.builtins.diagnostics.rubocop,
+    null_ls.builtins.code_actions.gitsigns
+  },
+})
 
 -- Disable inline diagnostics.
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
