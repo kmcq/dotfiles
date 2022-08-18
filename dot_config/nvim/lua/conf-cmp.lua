@@ -10,6 +10,9 @@ local has_words_before = function()
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
 cmp.setup({
   formatting = {
     format = lspkind.cmp_format({
@@ -67,8 +70,8 @@ cmp.setup({
     { name = "nvim_lsp" },
     { name = "luasnip" },
     { name = "nvim_lsp_signature_help" },
-    }, {
-      { name = "buffer", keyword_length = 3 },
+  }, {
+    { name = "buffer", keyword_length = 3 },
   }),
 })
 
@@ -85,8 +88,8 @@ cmp.setup.cmdline(":", {
   mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({
     { name = "path" },
-    }, {
-      { name = "cmdline" },
+  }, {
+    { name = "cmdline" },
   }),
 })
 
