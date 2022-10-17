@@ -36,7 +36,7 @@ local plugins = function(use)
   use({
     "feline-nvim/feline.nvim",
     config = function()
-      require("feline").setup()
+      require("conf-feline")
     end,
   })
   use({
