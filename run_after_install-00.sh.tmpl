@@ -27,4 +27,11 @@ if [ ! -d ~/.hammerspoon/Spoons/ControlEscape.spoon ] ; then
   script/setup
 fi
 
+echo "Installing gh extensions"
+
+gh extension install kmcq/gh-combine-dependabot-prs 2> /dev/null
+gh extension install dlvhdr/gh-dash 2> /dev/null
+gh extension install github/gh-merge-queue 2> /dev/null
+gh extension install rneatherway/gh-slack 2> /dev/null
+
 {{ end }}
