@@ -16,7 +16,7 @@ eval "$($(brew --prefix)/bin/brew shellenv)"
 # Load asdf
 . $(brew --prefix)/opt/asdf/libexec/asdf.sh
 
-export JAVA_HOME=$(/usr/libexec/java_home)
+source $HOME/.asdf/plugins/java/set-java-home.zsh
 
 {{ else }}
 
