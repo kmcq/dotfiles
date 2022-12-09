@@ -45,4 +45,6 @@ $(brew --prefix)/bin/asdf plugin-list | grep chezmoi || $(brew --prefix)/bin/asd
 echo "Installing fzf completions..."
 $(brew --prefix)/opt/fzf/install --key-bindings --completion --no-update-rc
 
+curl https://raw.githubusercontent.com/junegunn/fzf-git.sh/main/fzf-git.sh > ~/.config/fzf-git.sh
+
 {{ end -}}
