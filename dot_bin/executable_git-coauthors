@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -e
+
+git log -100000 --pretty='%aN <%aE>' | sort | uniq | awk '{ print "Co-authored-by: " $0; }'
