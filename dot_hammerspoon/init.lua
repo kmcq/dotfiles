@@ -244,7 +244,7 @@ end, nil, nil)
 local function applicationWatcher(appName, eventType)
   -- App focused
   if (eventType == hs.application.watcher.activated) then
-    if (appName == "Google Chrome") then
+    if (appName == "Google Chrome" or appName == "HyperList") then
       ctrlNToDown:enable()
       ctrlPToUp:enable()
     end
@@ -254,7 +254,7 @@ local function applicationWatcher(appName, eventType)
   -- App terminated
   if (eventType == hs.application.watcher.deactivated or
       eventType == hs.application.watcher.terminated) then
-    if (appName == "Google Chrome") then
+    if (appName == "Google Chrome" or appName == "HyperList") then
       ctrlNToDown:disable()
       ctrlPToUp:disable()
     end
