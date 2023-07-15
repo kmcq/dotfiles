@@ -126,42 +126,43 @@ local plugins = function(use)
       require("conf-treesitter")
     end,
   })
-  use({
-    "neovim/nvim-lspconfig",
+  use {
+    'VonHeikemen/lsp-zero.nvim',
     requires = {
-      "folke/trouble.nvim",
-      "jose-elias-alvarez/null-ls.nvim",
-      "jose-elias-alvarez/nvim-lsp-ts-utils",
-      "lukas-reineke/lsp-format.nvim",
-      "williamboman/mason-lspconfig.nvim",
-      "williamboman/mason.nvim",
-    },
-    config = function()
-      require("conf-lspconfig")
-    end,
-  })
+      -- LSP Support
+      { 'neovim/nvim-lspconfig' },
+      { 'williamboman/mason.nvim' },
+      { 'williamboman/mason-lspconfig.nvim' },
+
+      -- Autocompletion
+      { 'hrsh7th/nvim-cmp' },
+      { 'hrsh7th/cmp-buffer' },
+      { 'hrsh7th/cmp-path' },
+      { 'saadparwaiz1/cmp_luasnip' },
+      { 'hrsh7th/cmp-nvim-lsp' },
+      { 'hrsh7th/cmp-nvim-lua' },
+
+      -- Snippets
+      { 'L3MON4D3/LuaSnip' },
+      -- Snippet Collection (Optional)
+      { 'rafamadriz/friendly-snippets' },
+    }
+  }
   use("tpope/vim-rails")
   use("vim-ruby/vim-ruby")
 
   -- Autocomplete + snippets
-  -- use("github/copilot.vim") let's try nvim-cmp instead
-  use({
-    "hrsh7th/nvim-cmp",
-    requires = {
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-nvim-lsp-signature-help",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-      "hrsh7th/cmp-cmdline",
-      "onsails/lspkind-nvim",
-      "L3MON4D3/LuaSnip",
-      "saadparwaiz1/cmp_luasnip",
-      "rafamadriz/friendly-snippets",
-    },
-    config = function()
-      require("conf-cmp")
-    end,
-  })
+  use { "zbirenbaum/copilot.lua" }
+  use {
+    "zbirenbaum/copilot-cmp",
+    after = { "copilot.lua" },
+    config = function ()
+      require("copilot").setup({
+        suggestion = { enabled = false },
+        panel = { enabled = false },
+      })
+    end
+  }
 
   -- Misc
   use("christoomey/vim-tmux-navigator")
@@ -192,3 +193,10 @@ local config = {
 }
 
 packer.startup({ plugins, config = config })
+
+-- Learn the keybindings, see :help lsp-zero-keybindings
+-- Learn to configure LSP servers, see :help lsp-zero-api-showcase
+local lsp = require('lsp-zero')
+lsp.preset('recommended')
+
+lsp.setup()

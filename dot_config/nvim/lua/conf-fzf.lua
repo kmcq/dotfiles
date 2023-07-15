@@ -15,7 +15,7 @@ vim.api.nvim_exec(
   [[
     " Replace the default dictionary completion with fzf-based fuzzy completion
     inoremap <expr> <c-x><c-k> fzf#vim#complete('cat /usr/share/dict/words')
-    inoremap <expr> gco fzf#vim#complete('git coauthors')
+    inoremap <expr> <c-g><c-g> fzf#vim#complete('git coauthors')
   ]],
   false
 )
