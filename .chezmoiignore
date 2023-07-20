@@ -4,6 +4,7 @@ install.sh
 setup-gpg-key.sh
 Switch Audio.alfredworkflow
 dot_bundle/cache/
+.bundle/cache
 solargraph/
 solargraph.tar
 dot_vim/plugged
