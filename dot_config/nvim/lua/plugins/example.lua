@@ -110,6 +110,7 @@ return {
     opts = {
       ensure_installed = {
         "bash",
+        "graphql",
         "html",
         "javascript",
         "json",
