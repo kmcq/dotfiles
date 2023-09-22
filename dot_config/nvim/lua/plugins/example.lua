@@ -230,6 +230,7 @@ return {
         virtual_text = false,
         float = { border = "rounded" },
       },
+      autoformat = false,
     },
   },
 
