@@ -38,9 +38,11 @@ brew 'pinentry-mac'
 EOF
 
 echo "Installing asdf plugins..."
-$(brew --prefix)/bin/asdf plugin-list | grep nodejs || $(brew --prefix)/bin/asdf plugin-add nodejs
-$(brew --prefix)/bin/asdf plugin-list | grep ruby || $(brew --prefix)/bin/asdf plugin-add ruby
 $(brew --prefix)/bin/asdf plugin-list | grep chezmoi || $(brew --prefix)/bin/asdf plugin-add chezmoi
+$(brew --prefix)/bin/asdf plugin-list | grep java || $(brew --prefix)/bin/asdf plugin-add java
+$(brew --prefix)/bin/asdf plugin-list | grep nodejs || $(brew --prefix)/bin/asdf plugin-add nodejs
+$(brew --prefix)/bin/asdf plugin-list | grep python || $(brew --prefix)/bin/asdf plugin-add python
+$(brew --prefix)/bin/asdf plugin-list | grep ruby || $(brew --prefix)/bin/asdf plugin-add ruby
 
 echo "Installing fzf completions..."
 $(brew --prefix)/opt/fzf/install --key-bindings --completion --no-update-rc
