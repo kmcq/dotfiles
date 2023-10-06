@@ -1,9 +1,6 @@
 [user]
   name = Keith McHugh
-  email = kmcq@github.com
-{{ if (eq .chezmoi.os "darwin") }}
-	signingkey = 8B932C1DA9E5B58C
-{{ end }}
+  email = keith.mchugh@gmail.com
 [github]
   user = kmcq
 [credential]
@@ -44,7 +41,6 @@
   process = git-lfs filter-process
   required = true
 [commit]
-  gpgsign = true
 	template = /Users/kmcq/.gitmessage
 [hub]
   protocol = https
