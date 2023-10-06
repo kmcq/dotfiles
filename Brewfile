@@ -1,15 +1,16 @@
 tap 'homebrew/cask-versions'
 tap 'adoptopenjdk/openjdk'
+tap homebrew/cask-fonts
 
 brew 'ag'
 brew 'coreutils'
 brew 'difftastic'
+brew 'font-hack-nerd-font'
+brew 'git-delta'
 brew 'gnu-tar'
 brew 'go'
 brew 'iproute2mac'
-brew 'jesseduffield/lazygit/lazygit'
 brew 'jq'
-brew 'git-delta'
 brew 'reattach-to-user-namespace'
 brew 'ripgrep'
 brew 'switchaudio-osx'
