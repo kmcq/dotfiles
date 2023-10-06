@@ -19,6 +19,10 @@ mkdir -p $HOME/go/bin
 echo "Install packages from homebrew..."
 brew bundle
 
+echo "Installing fonts from homebrew..."
+brew tap homebrew/cask-fonts
+brew install font-hack-nerd-font
+
 if [ ! -d ~/.hammerspoon/Spoons/ControlEscape.spoon ] ; then
   echo "Setting up hammerspoon..."
   git clone -q https://github.com/jasonrudolph/ControlEscape.spoon.git ~/.hammerspoon/Spoons/ControlEscape.spoon

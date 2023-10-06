@@ -1,11 +1,9 @@
 tap 'homebrew/cask-versions'
 tap 'adoptopenjdk/openjdk'
-tap homebrew/cask-fonts
 
 brew 'ag'
 brew 'coreutils'
 brew 'difftastic'
-brew 'font-hack-nerd-font'
 brew 'git-delta'
 brew 'gnu-tar'
 brew 'go'
