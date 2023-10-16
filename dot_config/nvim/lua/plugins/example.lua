@@ -26,6 +26,9 @@ return {
   -- disable leap
   { "ggandor/leap.nvim", enabled = false },
 
+  -- disable adding the end parenthesis, etc
+  { "echasnovski/mini.pairs", enabled = false },
+
   -- add symbols-outline
   {
     "simrat39/symbols-outline.nvim",
@@ -230,8 +233,14 @@ return {
         virtual_text = false,
         float = { border = "rounded" },
       },
-      autoformat = false,
     },
+  },
+
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function() vim.fn["mkdp#util#install"]() end,
   },
 
   { "tpope/vim-fugitive" },

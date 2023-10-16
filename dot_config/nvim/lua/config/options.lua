@@ -7,3 +7,7 @@ vim.opt.relativenumber = false
 vim.diagnostic.config({
   virtual_text = false,
 })
+
+vim.g.autoformat = false
+vim.g.root_spec = { ".git" }
+vim.o.conceallevel = 0
