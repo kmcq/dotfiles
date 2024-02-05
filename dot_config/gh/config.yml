@@ -30,3 +30,4 @@ aliases:
     important: "!gh search issues --repo $(project-repos) --label impact:large --state open --sort updated --order desc --no-assignee --json title,updatedAt,url -t '{{range .}}{{tablerow .title .updatedAt .url}}{{end}}'"
     dbot: "!gh search prs --repo $(project-repos) --state open --app dependabot --sort updated --order desc --json title,updatedAt,url -t '{{range .}}{{tablerow .title .updatedAt .url}}{{end}}'"
     watch: "!gh pr checks $1 --watch --required && osascript -e 'display notification \"Checks complete\" with title \"GH PR\"'"
+version: "1"

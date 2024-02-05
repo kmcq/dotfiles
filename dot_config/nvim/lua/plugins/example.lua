@@ -123,6 +123,7 @@ return {
         "python",
         "query",
         "regex",
+        "terraform",
         "tsx",
         "typescript",
         "vim",

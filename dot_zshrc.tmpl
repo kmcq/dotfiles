@@ -75,6 +75,7 @@ alias gd="git diff"
 alias gdc="git diff --cached"
 alias glnh="git log --pretty=format:'%Cred%h%Creset -%C(bold yellow)<%an> %C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --date=relative --abbrev-commit --graph --no-merges"
 alias gl="echo && git branch && echo && glnh -10"
+alias grecent = "git log master --since='2 weeks ago' --author='(kmchugh|timothyshrugged)' --perl-regexp --pretty=format:'%Cred%h%Creset %C(bold yellow)%an:%Creset %s %Cgreen(%cr)%Creset' --date=relative --abbrev-commit"
 
 ### TMUX ###
 alias tn='tmux new -s'
@@ -94,7 +95,6 @@ fi
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
 
-### GITHUB ###
+### FIGMA ###
 
-alias gh-presto='presto --server presto-coordinator.service.github.net:8080'
-alias gh-presto-export='gh-presto --output-format CSV_HEADER -f'
+alias ff='cd ~/figma/figma/'
