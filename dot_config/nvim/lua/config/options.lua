@@ -3,6 +3,7 @@
 -- Add any additional options here
 
 vim.opt.relativenumber = false
+vim.opt.wrap = true
 
 vim.diagnostic.config({
   virtual_text = false,
