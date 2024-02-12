@@ -7,24 +7,20 @@ export PATH="$HOME/.bin:/usr/local/sbin:$PATH"
 export PATH="$PATH:$HOME/.yarn/bin"
 export PATH="$PATH:/usr/local/opt/mysql@5.7/bin"
 export PATH="$HOME/go/bin:$PATH"
-
-{{- if (eq .chezmoi.os "darwin") -}}
-
-# Load brew
+export PATH="${HOMEBREW_PREFIX}/opt/openssl/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/zlib/lib/pkgconfig:/usr/local/opt/zlib/lib/pkgconfig:$PKG_CONFIG_PATH"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@3/lib/pkgconfig:/usr/local/opt/openssl@3/lib/pkgconfig:$PKG_CONFIG_PATH"
+export RACK_ENV=development
+export AWS_CONFIG_FILE="$HOME/figma/figma/config/aws/sso_config"
+eval "$(rbenv init -)"
 eval "$($(brew --prefix)/bin/brew shellenv)"
 
 # Load asdf
-. $(brew --prefix)/opt/asdf/libexec/asdf.sh
+# . $(brew --prefix)/opt/asdf/libexec/asdf.sh
+# source $HOME/.asdf/plugins/java/set-java-home.zsh
 
-source $HOME/.asdf/plugins/java/set-java-home.zsh
 source $HOME/.config/fzf-git.sh
-
-{{ else }}
-
-# Load asdf
-. $HOME/.asdf/asdf.sh
-
-{{ end -}}
 
 source "$HOME/.zsh/config.zsh"
 source "$HOME/.zsh/prompt.zsh"
