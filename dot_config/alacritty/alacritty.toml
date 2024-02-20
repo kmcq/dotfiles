@@ -626,7 +626,6 @@ semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 decorations = "none"
 dynamic_padding = false
 opacity = 1.0
-startup_mode = "Fullscreen"
 title = "Alacritty"
 
 [window.dimensions]
