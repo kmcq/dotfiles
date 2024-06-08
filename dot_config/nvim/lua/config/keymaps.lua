@@ -19,7 +19,3 @@ vim.keymap.set("n", "\\", Util.telescope("live_grep"))
 -- Remove some lazy keymaps
 vim.keymap.del({ "i", "n", "v" }, "<A-j>")
 vim.keymap.del({ "i", "n", "v" }, "<A-k>")
-vim.keymap.del({ "o", "n", "v" }, "f")
-vim.keymap.del({ "o", "n", "v" }, "F")
-vim.keymap.del({ "o", "n", "v" }, "t")
-vim.keymap.del({ "o", "n", "v" }, "T")
