@@ -14,7 +14,7 @@ vim.keymap.set("n", "[c", "[h", { desc = "Prev Hunk", remap = true })
 
 vim.keymap.set("n", "c*", "*Ncgn")
 
-vim.keymap.set("n", "\\", Util.telescope("live_grep"))
+vim.keymap.set("n", "\\", Util.pick("live_grep"))
 
 -- Remove some lazy keymaps
 vim.keymap.del({ "i", "n", "v" }, "<A-j>")
