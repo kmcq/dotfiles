@@ -1,5 +1,4 @@
 tap 'homebrew/cask-versions'
-tap 'adoptopenjdk/openjdk'
 
 brew 'ag'
 brew 'coreutils'
