@@ -302,12 +302,12 @@ require("lazy").setup({
 				},
 			},
 			dependencies = {
-				"mason.nvim",
+				"williamboman/mason.nvim",
 				{ "williamboman/mason-lspconfig.nvim", config = function() end },
 			},
 			config = function()
 				-- Ensure mason can use asdf-installed packages
-				vim.fn.setenv("PATH", vim.fn.expand("~/.asdf/shims:$PATH"))
+				vim.fn.setenv("PATH", vim.fn.expand("~/.rbenv/shims:~/.asdf/shims:$PATH"))
 
 				require("mason").setup()
 				require("mason-lspconfig").setup()
