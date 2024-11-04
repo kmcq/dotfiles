@@ -65,7 +65,6 @@ vim.opt.splitkeep = "screen"
 vim.opt.splitright = true -- Put new windows right of current
 vim.opt.tabstop = 2 -- Number of spaces tabs count for
 vim.opt.termguicolors = true -- True color support
-vim.opt.timeoutlen = vim.g.vscode and 1000 or 300 -- Lower than default (1000) to quickly trigger which-key
 vim.opt.undofile = true
 vim.opt.undolevels = 10000
 vim.opt.updatetime = 200 -- Save swap file and trigger CursorHold
@@ -113,6 +112,19 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 require("lazy").setup({
 	spec = {
 		{
+			"saghen/blink.cmp",
+			lazy = false, -- lazy loading handled internally
+			version = "v0.*", -- use a release tag to download pre-built binaries
+			opts = {
+				keymap = { preset = "super-tab" },
+
+				highlight = {
+					use_nvim_cmp_as_default = true,
+				},
+				nerd_font_variant = "mono",
+			},
+		},
+		{
 			"MagicDuck/grug-far.nvim",
 			opts = { headerMaxWidth = 80 },
 			keys = {
@@ -133,11 +145,7 @@ require("lazy").setup({
 				},
 			},
 			config = function()
-				require("grug-far").setup({
-					-- options, see Configuration section below
-					-- there are no required options atm
-					-- engine = 'ripgrep' is default, but 'astgrep' can be specified
-				})
+				require("grug-far").setup()
 			end,
 		},
 		{
@@ -151,6 +159,9 @@ require("lazy").setup({
 						filter = { buf = 0 }, -- filter diagnostics to the current buffer
 					},
 					lsp = {
+						win = { position = "bottom" },
+					},
+					symbols = {
 						win = { position = "bottom" },
 					},
 				},
