@@ -15,6 +15,8 @@
   coi = !"git branch --sort=-committerdate --format \"%(refname:short);%(creatordate:relative);%(committername)\" | column -s \";\" -t | fzf --reverse --nth=1 --preview \"git log --patch --color {1}...{1}~5\" | awk '{print $1}' | xargs git checkout"
   coir = !"git branch -a --sort=-committerdate --format \"%(refname:short);%(creatordate:relative);%(committername)\" | column -s \";\" -t | fzf --reverse --nth=1 --preview \"git log --patch --color {1}...{1}~5\" | awk '{print $1}' | xargs git checkout"
   delete-merged-branches = "!git co master && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+  delete-remote-branches = "!git branch -r | xargs -P8 -L 1 git branch -rD"
+  gcr = "!git fetch origin $1:$1 && git checkout $1"
 	recent = branch --sort=committerdate --format=\"%(committerdate:relative)%09%(refname:short)\"
   st = status
   staged = diff --staged
@@ -27,6 +29,10 @@
   excludesfile = ~/.gitignore
   editor = nvim
 	difftool = true
+	fsmonitor = true
+	untrackedcache = true
+	commitgraph = true
+	writeCommitGraph = true
 [mergetool]
   prompt = false
 [push]
