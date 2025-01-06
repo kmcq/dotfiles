@@ -35,6 +35,7 @@ vim.opt.fillchars = {
 	eob = " ",
 }
 vim.opt.foldlevel = 99
+vim.opt.foldmethod = "indent"
 vim.opt.grepformat = "%f:%l:%c:%m"
 vim.opt.grepprg = "rg --vimgrep"
 vim.opt.ignorecase = true -- Ignore case
@@ -84,6 +85,7 @@ vim.keymap.set("n", "<c-h>", "<c-w>h")
 vim.keymap.set("n", "<c-l>", "<c-w>l")
 vim.keymap.set("n", "<c-j>", "<c-w>j")
 vim.keymap.set("n", "<c-k>", "<c-w>k")
+vim.keymap.set("c", "%%", "<c-r>=expand('%:h').'/'<cr>")
 
 -- Auto create dir when saving a file, in case some intermediate directory does not exist
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
@@ -200,7 +202,8 @@ require("lazy").setup({
 			config = function()
 				-- calling `setup` is optional for customization
 				require("fzf-lua").setup({})
-				vim.keymap.set("n", "<c-T>", require("fzf-lua").git_files, { desc = "Fzf Files" })
+				vim.keymap.set("n", "<c-T>", require("fzf-lua").files, { desc = "Fzf Files" })
+				vim.keymap.set("n", "<c-b>", require("fzf-lua").buffers, { desc = "Fzf Buffers" })
 			end,
 		},
 		{ "tpope/vim-fugitive" },
@@ -380,6 +383,7 @@ require("lazy").setup({
 					"python",
 					"query",
 					"regex",
+					"terraform",
 					"toml",
 					"tsx",
 					"typescript",
